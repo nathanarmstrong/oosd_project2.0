@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertsClasses;
 
 namespace TravelExperts
 {
@@ -19,12 +20,15 @@ namespace TravelExperts
      */
     public partial class AdminPannel : Form
     {
+       // List<TravelPackage> travelPackage = new List<TravelPackage>(); // empty list of travelPackage
         public AdminPannel()
         {
             InitializeComponent();
         }
         //On click open package form and hide current form
         //By Nathan Armstrong
+        
+
         private void btnAddPackage_Click(object sender, EventArgs e)
         {
             Packages pForm = new Packages();

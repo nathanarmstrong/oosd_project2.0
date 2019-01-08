@@ -13,30 +13,33 @@ namespace TravelExperts
     {
         const string path = "testPackage.txt";
 
-        // writes data from the array to the file
-        //public static void WriteData(List<TravelPackage> travelPackage)
-        //{
-        //    FileStream fs = null;
-        //    StreamWriter sw = null;
-        //    try
-        //    {
-        //        // open the file for writing; overwrite old content
-        //        fs = new FileStream (path, FileMode.OpenOrCreate, FileAccess.Write);
-        //        sw = new StreamWriter(fs);
-        //        // write data
-        //        foreach (TravelPackage tp in travelPackage)
-        //            sw.WriteLine(tp.ToFileString());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error while writing to the file: " + ex.Message, ex.GetType().ToString());
-        //    }
-        //    finally
-        //    {
-        //        if (sw != null) sw.Close(); // also closes fs
+        //writes data from the array to the file
+        /*
+        public static void WriteData(List<TravelPackage> travelPackage)
+        {
+            FileStream fs = null;
+            StreamWriter sw = null;
+            try
+            {
+                // open the file for writing; overwrite old content
+                fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+                sw = new StreamWriter(fs);
+                // write data
+                foreach (TravelPackage tp in travelPackage)
+                    sw.WriteLine(tp.ToFileString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while writing to the file: " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                if (sw != null) sw.Close(); // also closes fs
 
-        //    }
-        //}
+            }
+        }
+        */
+
         // reads data from the file and puts in a list and returns it
         // returns number of elements
         public static List<TravelPackage> ReadData()
