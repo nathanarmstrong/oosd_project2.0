@@ -14,7 +14,7 @@ namespace TravelExperts
         const string path = "testPackage.txt";
 
         //writes data from the array to the file
-        /*
+        
         public static void WriteData(List<TravelPackage> travelPackage)
         {
             FileStream fs = null;
@@ -38,7 +38,7 @@ namespace TravelExperts
 
             }
         }
-        */
+        
 
         // reads data from the file and puts in a list and returns it
         // returns number of elements

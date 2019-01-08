@@ -12,16 +12,17 @@ namespace TravelExpertsClasses
         Current version - 1.0
             version:
                  v1.0 - Januray 6, 2018
+                 v1.1 - January 8, 2018
+                 
+                 v1.0 - Created Travel Package class and FileIO for future testing
+                 v1.1 - Debugged Visual Studio bug causing compiling error.  No change to code :0
+                 
       
       
       
       
       
-        Note: need to add:
- 
-        List<TravelPackage> travelPackage = new List<TravelPackage>(); // empty list of travelPackage
-
-        to the start of the Form
+        
     */
 
     // Travel Packages Class
@@ -89,7 +90,7 @@ namespace TravelExpertsClasses
         public string ToFileString()
         {
             return pkgName.ToString() + "," +
-                pkgStartDate + "," +
+                pkgStartDate.ToString() + "," +
                 pkgEndDate.ToString() + "," +
                 pkgDesc.ToString() + "," +
                 pkgBasePrice.ToString() + "," +
