@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBSQLServerUtils.cs" />
+    <Compile Include="DBUtils.cs" />
     <Compile Include="ProductsClass.cs" />
     <Compile Include="TravelPackagesClass.cs" />
     <Compile Include="SupplierClass.cs" />

@@ -4,3 +4,9 @@ C:\xampp1\htdocs\GitHub\oosd_project2\TravelExperts\TravelExpertsClasses\obj\Deb
 C:\xampp1\htdocs\GitHub\oosd_project2\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.csproj.CoreCompileInputs.cache
 C:\xampp1\htdocs\GitHub\oosd_project2\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.dll
 C:\xampp1\htdocs\GitHub\oosd_project2\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.pdb
+C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\bin\Debug\TravelExpertsClasses.dll
+C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\bin\Debug\TravelExpertsClasses.pdb
+C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.csprojAssemblyReference.cache
+C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.csproj.CoreCompileInputs.cache
+C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.dll
+C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.pdb
