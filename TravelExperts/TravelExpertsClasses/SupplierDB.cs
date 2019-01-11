@@ -14,7 +14,7 @@ namespace TravelExpertsClasses
 
             List<Supplier> suppliers = new List<Supplier>(); // empty list
             Supplier sup; // for reading
-            SqlConnection con = TravelExperts.GetConnection();
+            SqlConnection con = TravelExpertsDB.GetConnection();
             string selectQuery = "SELECT SupplierId, SupName FROM dbo.Suppliers";
             SqlCommand cmd = new SqlCommand(selectQuery, con);
             try

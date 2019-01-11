@@ -10,3 +10,10 @@ C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClas
 C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.csproj.CoreCompileInputs.cache
 C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.dll
 C:\Users\Manish\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.pdb
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.csprojAssemblyReference.cache
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.csproj.CoreCompileInputs.cache
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.dll
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\obj\Debug\TravelExpertsClasses.pdb
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\bin\Debug\TravelExperts.mdf
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\bin\Debug\TravelExpertsClasses.dll
+C:\Users\255439\Documents\GitHub\oosd_project2.0\TravelExperts\TravelExpertsClasses\bin\Debug\TravelExpertsClasses.pdb
