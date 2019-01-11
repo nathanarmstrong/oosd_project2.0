@@ -15,7 +15,7 @@ namespace TravelExpertsClasses
             TravelPackage travelPackage;
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
             string selectQuery = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission " +
-                                  "FROM Customers";
+                                  "FROM Packages";
             SqlCommand cmd = new SqlCommand(selectQuery, dbConnect);
             try
             {
@@ -24,7 +24,7 @@ namespace TravelExpertsClasses
                 while (reader.Read())
                 {
                     travelPackage = new TravelPackage();
-                    travelPackage.PkgID = (decimal)reader["PackageId"];
+                    travelPackage.PkgID = (int)reader["PackageId"];
                     travelPackage.PkgName = (string)reader["PkgName"];
                     travelPackage.PkgStartDate = (DateTime)reader["PkgStartDate"];
                     travelPackage.PkgEndDate = (DateTime)reader["PkgEndDate"];

@@ -29,7 +29,7 @@ namespace TravelExpertsClasses
     public class TravelPackage
     {
         // Private data for packages class
-        private decimal pkgID;
+        private int pkgID;
         private string pkgName;
         private DateTime pkgStartDate;
         private DateTime pkgEndDate;
@@ -38,7 +38,7 @@ namespace TravelExpertsClasses
         private decimal pkgAgencyCommission;
 
         // Public getters and setters
-        public decimal PkgID
+        public int PkgID
         {
             get { return pkgID; }
             set { pkgID = value; }
