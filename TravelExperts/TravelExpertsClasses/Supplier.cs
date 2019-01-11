@@ -21,30 +21,24 @@ namespace TravelExpertsClasses
             set { supplierId = value; }
         }
 
-        public string SupplierName
+        public string SupName
         {
             get { return supplierName; }
             set { supplierName = value; }
         }
 
-
         // constructors
-        public Supplier(int id, string name)
-        {
-            SupplierId = id;
-            SupplierName = name;
-        }
 
         public string SupplierInfo
         {
             get
             {
                 // returns "Supplier Id - SupplierName"
-                return $"{ SupplierId } - { SupplierName }";
+                return $"{ SupplierId } - { SupName }";
             }
         }
     }
 }
 
-    
+
 
