@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace TravelExperts
      * Basic layout: Nathan Armstrong
      * 
      */
+
     public partial class Suppliers_Products : Form
     {
         // TODO: Create a list of both products and supliers
@@ -83,5 +85,6 @@ namespace TravelExperts
         {
             Application.Exit();
         }
+
     }
 }
