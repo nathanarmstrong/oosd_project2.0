@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
-    class Product
+    public class Product
     {
+        public Product() { }
+
+        public string ProductId { get; }
+
+        public string ProdName { get; set; }
     }
 }
