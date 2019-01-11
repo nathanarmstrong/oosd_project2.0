@@ -10,7 +10,7 @@ namespace TravelExpertsClasses
     {
         public Product() { }
 
-        public string ProductId { get; }
+        public string ProductId { get; set; }
 
         public string ProdName { get; set; }
     }
