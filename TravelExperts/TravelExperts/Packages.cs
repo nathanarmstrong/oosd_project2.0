@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertsClasses;
 
 namespace TravelExperts
 {
@@ -19,6 +20,7 @@ namespace TravelExperts
     public partial class Packages : Form
     {
         // TODO: Create list Package class called packages
+        List<TravelPackage> packages;
         public Packages()
         {
             InitializeComponent();
@@ -33,6 +35,8 @@ namespace TravelExperts
         private void displayPackages()
         {
             // TODO: Get all packages from list and display in list box
+            packages = TravelPackageDB.GetTavelPackage();
+            listPackages.DataSource = packages;
         }
         // Close Application
         // By Nathan Armstrong

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listPackages = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -54,13 +54,13 @@
             this.label1.Text = "Travel Experts Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // listBox1
+            // listPackages
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(73, 110);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(650, 147);
-            this.listBox1.TabIndex = 3;
+            this.listPackages.FormattingEnabled = true;
+            this.listPackages.Location = new System.Drawing.Point(73, 110);
+            this.listPackages.Name = "listPackages";
+            this.listPackages.Size = new System.Drawing.Size(650, 147);
+            this.listPackages.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -167,7 +167,7 @@
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listPackages);
             this.Controls.Add(this.label1);
             this.Name = "Packages";
             this.Text = "Packages";
@@ -180,7 +180,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listPackages;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;

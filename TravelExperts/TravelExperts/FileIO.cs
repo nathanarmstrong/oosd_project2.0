@@ -60,14 +60,14 @@ namespace TravelExperts
                     fields = line.Split(',');  //split line into fields
 
                     // call the other contsructor to not re-calculate the charge amount
-                    TravelPackage tp = new TravelPackage(Convert.ToString(fields[0]),
-                                              Convert.ToString(fields[1]),
-                                              Convert.ToString(fields[2]),
-                                              Convert.ToString(fields[3]),
-                                              Convert.ToDecimal(fields[4]),
-                                              Convert.ToDecimal(fields[5])
-                                            );
-                    travelPackage.Add(tp);
+                    //TravelPackage tp = new TravelPackage(Convert.ToString(fields[0]),
+                    //                          Convert.ToString(fields[1]),
+                    //                          Convert.ToString(fields[2]),
+                    //                          Convert.ToString(fields[3]),
+                    //                          Convert.ToDecimal(fields[4]),
+                    //                          Convert.ToDecimal(fields[5])
+                    //                        );
+                    //travelPackage.Add(tp);
                 }
             }
             catch (FormatException)
