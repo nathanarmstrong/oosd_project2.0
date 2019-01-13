@@ -48,31 +48,26 @@ namespace TravelExpertsClasses
             get { return pkgName; }
             set { pkgName = value; }
         }
-
         public DateTime PkgStartDate
         {
             get { return pkgStartDate; }
             set { pkgStartDate = value; }
         }
-
         public DateTime PkgEndDate
         {
             get { return pkgEndDate; }
             set { pkgEndDate = value; }
         }
-
         public string PkgDesc
         {
             get { return pkgDesc; }
             set { pkgDesc = value; }
         }
-
         public decimal PkgBasePrice
         {
             get { return pkgBasePrice; }
             set { pkgBasePrice = value; }
         }
-
         public decimal PkgAgencyCommission
         {
             get { return pkgAgencyCommission; }
