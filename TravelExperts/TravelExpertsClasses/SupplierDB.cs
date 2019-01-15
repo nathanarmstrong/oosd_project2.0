@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
-    class SupplierDB
+    public static class SupplierDB
     {
         public static List<Supplier> GetSuppliers()
         {
@@ -15,7 +15,7 @@ namespace TravelExpertsClasses
             List<Supplier> suppliers = new List<Supplier>(); // empty list
             Supplier sup; // for reading
             SqlConnection con = TravelExpertsDB.GetConnection();
-            string selectQuery = "SELECT SupplierId, SupName FROM dbo.Suppliers";
+            string selectQuery = "SELECT SupplierId, SupName FROM dbo.Suppliers ORDER BY SupName";
             SqlCommand cmd = new SqlCommand(selectQuery, con);
             try
             {

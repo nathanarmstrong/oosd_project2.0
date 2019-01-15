@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertsClasses;
 
 namespace TravelExperts
 {
@@ -20,7 +21,9 @@ namespace TravelExperts
 
     public partial class Suppliers_Products : Form
     {
-        // TODO: Create a list of both products and supliers
+        // Create a list of both products and supliers
+        List<Product> products = new List<Product>();
+        List<Supplier> suppliers = new List<Supplier>();
         public Suppliers_Products()
         {
             InitializeComponent();
@@ -34,7 +37,11 @@ namespace TravelExperts
         // Take all products in list and display them
         private void displayProducts()
         {
-            // TODO: take all the products from list and display it in the list box
+            // take all the products from list and display it in the list box
+            foreach (Product product in products)
+            {
+                lbProducts.Items.Add(product.ProdName);
+            }
         }
         // Adds Supplier by name to the list of suppliers and appends it to the DB
         private void btnAddSuppliers_Click(object sender, EventArgs e)
@@ -45,11 +52,17 @@ namespace TravelExperts
         private void displaySuppliers()
         {
             // TODO: take all the suppliers from list and display it in the list box
+            foreach(Supplier supplier in suppliers)
+            {
+                lbSuppliers.Items.Add(supplier.SupName);
+            }
         }
         // on load get all suppliers, products, and there relation table then append the data to the corisponding list
         private void Suppliers_Products_Load(object sender, EventArgs e)
         {
-            // TODO: get all suppliers and products and append to corisonding list
+            // get all suppliers and products and append to corisonding list
+            products = ProductDB.GetProducts();
+            suppliers = SupplierDB.GetSuppliers();
             displayProducts();
             displaySuppliers();
         }

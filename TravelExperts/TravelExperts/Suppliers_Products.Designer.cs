@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lbProducts = new System.Windows.Forms.ListBox();
+            this.lbSuppliers = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,22 +55,22 @@
             this.label1.Text = "Travel Experts Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // listBox1
+            // lbProducts
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(38, 101);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(184, 238);
-            this.listBox1.TabIndex = 4;
+            this.lbProducts.FormattingEnabled = true;
+            this.lbProducts.Location = new System.Drawing.Point(38, 101);
+            this.lbProducts.MultiColumn = true;
+            this.lbProducts.Name = "lbProducts";
+            this.lbProducts.Size = new System.Drawing.Size(184, 238);
+            this.lbProducts.TabIndex = 4;
             // 
-            // listBox2
+            // lbSuppliers
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(259, 101);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(184, 238);
-            this.listBox2.TabIndex = 4;
-            //this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.lbSuppliers.FormattingEnabled = true;
+            this.lbSuppliers.Location = new System.Drawing.Point(259, 101);
+            this.lbSuppliers.Name = "lbSuppliers";
+            this.lbSuppliers.Size = new System.Drawing.Size(184, 238);
+            this.lbSuppliers.TabIndex = 4;
             // 
             // textBox1
             // 
@@ -184,8 +184,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbSuppliers);
+            this.Controls.Add(this.lbProducts);
             this.Controls.Add(this.label1);
             this.Name = "Suppliers_Products";
             this.Text = "Suppliers_Products";
@@ -198,8 +198,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lbProducts;
+        private System.Windows.Forms.ListBox lbSuppliers;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
