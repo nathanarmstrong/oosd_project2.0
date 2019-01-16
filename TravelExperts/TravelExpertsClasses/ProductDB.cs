@@ -25,7 +25,7 @@ namespace TravelExpertsClasses
                 while (reader.Read())
                 {
                     Product prod = new Product();
-                    prod.ProductId = reader["ProductId"].ToString();
+                    prod.ProductId = (int)reader["ProductId"];
                     prod.ProdName = reader["ProdName"].ToString();
                     products.Add(prod);
                 }
@@ -40,6 +40,32 @@ namespace TravelExpertsClasses
                 connection.Close();
             }
             return products;
+        }
+        public static int AddProduct(Product product)
+        {
+            SqlConnection con = TravelExpertsDB.GetConnection();
+            string insertStatement = "INSERT INTO Products (ProdName) " +
+                                     "VALUES(@Name)";
+            SqlCommand cmd = new SqlCommand(insertStatement, con);
+            cmd.Parameters.AddWithValue("@Name", product.ProdName);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery(); // run the insert command
+                // get the generated ID - current identity value for  Customers table
+                string selectQuery = "SELECT IDENT_CURRENT('Products') FROM Products";
+                SqlCommand selectCmd = new SqlCommand(selectQuery, con);
+                int productId = Convert.ToInt32(selectCmd.ExecuteScalar()); // single value
+                return productId;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

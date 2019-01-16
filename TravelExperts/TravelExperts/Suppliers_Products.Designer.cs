@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbProducts = new System.Windows.Forms.ListBox();
             this.lbSuppliers = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtProducts = new System.Windows.Forms.TextBox();
+            this.txtSuppliers = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddProducts = new System.Windows.Forms.Button();
@@ -72,19 +72,19 @@
             this.lbSuppliers.Size = new System.Drawing.Size(184, 238);
             this.lbSuppliers.TabIndex = 4;
             // 
-            // textBox1
+            // txtProducts
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 377);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtProducts.Location = new System.Drawing.Point(38, 377);
+            this.txtProducts.Name = "txtProducts";
+            this.txtProducts.Size = new System.Drawing.Size(184, 20);
+            this.txtProducts.TabIndex = 5;
             // 
-            // textBox2
+            // txtSuppliers
             // 
-            this.textBox2.Location = new System.Drawing.Point(259, 377);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtSuppliers.Location = new System.Drawing.Point(259, 377);
+            this.txtSuppliers.Name = "txtSuppliers";
+            this.txtSuppliers.Size = new System.Drawing.Size(184, 20);
+            this.txtSuppliers.TabIndex = 5;
             // 
             // label2
             // 
@@ -182,8 +182,8 @@
             this.Controls.Add(this.btnAddProducts);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSuppliers);
+            this.Controls.Add(this.txtProducts);
             this.Controls.Add(this.lbSuppliers);
             this.Controls.Add(this.lbProducts);
             this.Controls.Add(this.label1);
@@ -200,8 +200,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbProducts;
         private System.Windows.Forms.ListBox lbSuppliers;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtProducts;
+        private System.Windows.Forms.TextBox txtSuppliers;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddProducts;

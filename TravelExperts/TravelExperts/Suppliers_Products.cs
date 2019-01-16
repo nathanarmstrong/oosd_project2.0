@@ -32,11 +32,18 @@ namespace TravelExperts
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
             // TODO: get input product.Text and append to list and then DB
+            string product = txtProducts.Text;
+            Product pro = new Product();
+            pro.ProdName = product;
+            pro.ProductId = ProductDB.AddProduct(pro);
+            products = ProductDB.GetProducts();
             displayProducts();
+            txtProducts.Clear();
         }
         // Take all products in list and display them
         private void displayProducts()
         {
+            lbProducts.Items.Clear();
             // take all the products from list and display it in the list box
             foreach (Product product in products)
             {
@@ -46,12 +53,19 @@ namespace TravelExperts
         // Adds Supplier by name to the list of suppliers and appends it to the DB
         private void btnAddSuppliers_Click(object sender, EventArgs e)
         {
-            // TODO: get input supplier.Text and append to list and then DB
+            // get input supplier.Text and append to list and then DB
+            string supplier = txtSuppliers.Text;
+            Supplier sup = new Supplier();
+            sup.SupName = supplier;
+            sup.SupplierId = SupplierDB.AddSupplier(sup);
+            suppliers = SupplierDB.GetSuppliers();
             displaySuppliers();
+            txtSuppliers.Clear();
         }
         private void displaySuppliers()
         {
-            // TODO: take all the suppliers from list and display it in the list box
+            lbSuppliers.Items.Clear();
+            // take all the suppliers from list and display it in the list box
             foreach(Supplier supplier in suppliers)
             {
                 lbSuppliers.Items.Add(supplier.SupName);

@@ -15,11 +15,7 @@ namespace TravelExpertsClasses
 
 
         //public getters and setters
-        public int SupplierId
-        {
-            get { return supplierId; }
-            set { supplierId = value; }
-        }
+        public int SupplierId{get;set; }
 
         public string SupName
         {
@@ -29,14 +25,14 @@ namespace TravelExpertsClasses
 
         // constructors
 
-        public string SupplierInfo
-        {
-            get
-            {
-                // returns "Supplier Id - SupplierName"
-                return $"{ SupplierId } - { SupName }";
-            }
-        }
+        //public string SupplierInfo
+        //{
+        //    get
+        //    {
+        //        // returns "Supplier Id - SupplierName"
+        //        return $"{ SupplierId } - { SupName }";
+        //    }
+        //}
     }
 }
 
