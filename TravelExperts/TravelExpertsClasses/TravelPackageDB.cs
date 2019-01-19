@@ -11,7 +11,7 @@ namespace TravelExpertsClasses
     {
         public static List<TravelPackage> GetTavelPackage()
         {
-            List<TravelPackage> packages = new List<TravelPackage>(); // empty list of invoices
+            List<TravelPackage> packages = new List<TravelPackage>(); // empty list of Packages
             TravelPackage travelPackage;
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
             string selectQuery = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission " +

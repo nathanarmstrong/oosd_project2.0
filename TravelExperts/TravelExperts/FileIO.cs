@@ -59,7 +59,7 @@ namespace TravelExperts
                     line = sr.ReadLine(); //read the next line
                     fields = line.Split(',');  //split line into fields
 
-                    // call the other contsructor to not re-calculate the charge amount
+                    
                     //TravelPackage tp = new TravelPackage(Convert.ToString(fields[0]),
                     //                          Convert.ToString(fields[1]),
                     //                          Convert.ToString(fields[2]),

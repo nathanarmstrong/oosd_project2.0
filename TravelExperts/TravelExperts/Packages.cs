@@ -34,9 +34,30 @@ namespace TravelExperts
         //Display all packages from list
         private void displayPackages()
         {
-            // TODO: Get all packages from list and display in list box
+            // lists items in list view in specified sub list items
             packages = TravelPackageDB.GetTavelPackage();
-            listPackages.DataSource = packages;
+            int i = 0;
+            foreach (TravelPackage package in packages)
+            {
+                ListViewItem lvi = new ListViewItem(package.PkgName, i); // new list view item starting with package name
+                lvi.SubItems.Add((package.PkgStartDate).ToShortDateString());
+                lvi.SubItems.Add((package.PkgEndDate).ToShortDateString());
+                lvi.SubItems.Add(package.PkgDesc);
+                lvi.SubItems.Add(package.PkgBasePrice.ToString("c"));
+                lvi.SubItems.Add(package.PkgAgencyCommission.ToString("c"));
+                lstPackages.Items.Add(lvi);
+                i++;
+            }
+
+            //foreach (TravelPackage package in packages)
+            //{
+            //    listPackages.Items.Add(package.PkgName + "," + package.PkgDesc);
+            //}
+
+
+            //packages = TravelPackageDB.GetTavelPackage();
+            //listPackages.DataSource = packages;
+
         }
         // Close Application
         // By Nathan Armstrong

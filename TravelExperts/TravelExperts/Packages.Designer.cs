@@ -40,6 +40,13 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnBackPage = new System.Windows.Forms.Button();
             this.btnLinkProSup = new System.Windows.Forms.Button();
+            this.lstPackages = new System.Windows.Forms.ListView();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colStartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colBasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAgComm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -152,11 +159,59 @@
             this.btnLinkProSup.UseVisualStyleBackColor = true;
             this.btnLinkProSup.Click += new System.EventHandler(this.btnLinkProSup_Click);
             // 
+            // lstPackages
+            // 
+            this.lstPackages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colName,
+            this.colStartDate,
+            this.colEndDate,
+            this.colDesc,
+            this.colBasePrice,
+            this.colAgComm});
+            this.lstPackages.GridLines = true;
+            this.lstPackages.Location = new System.Drawing.Point(12, 160);
+            this.lstPackages.Name = "lstPackages";
+            this.lstPackages.Size = new System.Drawing.Size(687, 97);
+            this.lstPackages.TabIndex = 15;
+            this.lstPackages.UseCompatibleStateImageBehavior = false;
+            this.lstPackages.View = System.Windows.Forms.View.Details;
+            // 
+            // colName
+            // 
+            this.colName.Text = "Package Name";
+            this.colName.Width = 114;
+            // 
+            // colStartDate
+            // 
+            this.colStartDate.Text = "Start Date";
+            this.colStartDate.Width = 97;
+            // 
+            // colEndDate
+            // 
+            this.colEndDate.Text = "End Date";
+            this.colEndDate.Width = 80;
+            // 
+            // colDesc
+            // 
+            this.colDesc.Text = "Description";
+            this.colDesc.Width = 175;
+            // 
+            // colBasePrice
+            // 
+            this.colBasePrice.Text = "Base Price";
+            this.colBasePrice.Width = 76;
+            // 
+            // colAgComm
+            // 
+            this.colAgComm.Text = "Agency Commision";
+            this.colAgComm.Width = 109;
+            // 
             // Packages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lstPackages);
             this.Controls.Add(this.btnLinkProSup);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnBackPage);
@@ -191,5 +246,12 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBackPage;
         private System.Windows.Forms.Button btnLinkProSup;
+        private System.Windows.Forms.ListView lstPackages;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colStartDate;
+        private System.Windows.Forms.ColumnHeader colEndDate;
+        private System.Windows.Forms.ColumnHeader colDesc;
+        private System.Windows.Forms.ColumnHeader colBasePrice;
+        private System.Windows.Forms.ColumnHeader colAgComm;
     }
 }
