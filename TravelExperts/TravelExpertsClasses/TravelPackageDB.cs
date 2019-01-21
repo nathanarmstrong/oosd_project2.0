@@ -48,7 +48,7 @@ namespace TravelExpertsClasses
         {
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
             string insertPackage = "INSERT INTO [Packages] ([PkgName], [PkgStartDate], [PkgEndDate], [PkgDesc], [PkgBasePrice], [PkgAgencyCommission]) " +
-                                   "VALUES(@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission";
+                                   "VALUES(@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
             SqlCommand cmd = new SqlCommand(insertPackage, dbConnect);
             cmd.Parameters.AddWithValue("@PkgName", tp.PkgName);
             cmd.Parameters.AddWithValue("@PkgStartDate", tp.PkgStartDate);

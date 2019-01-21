@@ -11,8 +11,8 @@ namespace TravelExpertsClasses
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
-            //string connectionString = @"Data Source=localhost;Initial Catalog=TravelExperts;Integrated Security=True";
+            //string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
+            string connectionString = @"Data Source=localhost;Initial Catalog=TravelExperts;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }
