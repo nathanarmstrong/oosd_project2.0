@@ -29,8 +29,8 @@ namespace TravelExpertsClasses
                     travelPackage.PkgStartDate = (DateTime)reader["PkgStartDate"];
                     travelPackage.PkgEndDate = (DateTime)reader["PkgEndDate"];
                     travelPackage.PkgDesc = (string)reader["PkgDesc"];
-                    travelPackage.PkgBasePrice = (decimal)reader["PkgBasePrice"];
-                    travelPackage.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
+                    travelPackage.PkgBasePrice = (reader["PkgBasePrice"]).ToString();
+                    travelPackage.PkgAgencyCommission = (reader["PkgAgencyCommission"]).ToString();
                     packages.Add(travelPackage);
                 }
             }
@@ -44,5 +44,32 @@ namespace TravelExpertsClasses
             }
             return packages;
         }
+        public static void AddPackage(TravelPackage tp)
+        {
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string insertPackage = "INSERT INTO [Packages] ([PkgName], [PkgStartDate], [PkgEndDate], [PkgDesc], [PkgBasePrice], [PkgAgencyCommission]) " +
+                                   "VALUES(@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission";
+            SqlCommand cmd = new SqlCommand(insertPackage, dbConnect);
+            cmd.Parameters.AddWithValue("@PkgName", tp.PkgName);
+            cmd.Parameters.AddWithValue("@PkgStartDate", tp.PkgStartDate);
+            cmd.Parameters.AddWithValue("@PkgEndDate", tp.PkgEndDate);
+            cmd.Parameters.AddWithValue("@PkgDesc", tp.PkgDesc);
+            cmd.Parameters.AddWithValue("@PkgBasePrice", tp.PkgBasePrice);
+            cmd.Parameters.AddWithValue("@PkgAgencyCommission", tp.PkgAgencyCommission);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+        }
+
     }
 }

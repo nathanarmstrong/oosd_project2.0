@@ -29,6 +29,38 @@ namespace TravelExperts
         private void btnAddPackage_Click(object sender, EventArgs e)
         {
             // TODO: get all input field.Text and append to packages list then SQL DB
+            // get input fields
+            string pkgName = txtPkgName.Text;
+            DateTime pkgStartDate = dtpStartDate.Value;
+            DateTime pkgEndDate = dtpEndDate.Value;
+            string pkgDesc = txtPkgDesc.Text;
+            decimal pkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+            decimal pkgAgncCommish = Convert.ToDecimal(txtPkgAgncCommish.Text);
+
+            // convert to currency?
+            string price = string.Format("{0:C}", pkgBasePrice);
+            string commish = string.Format("{0:C}", pkgAgncCommish);
+
+            //create package class
+            TravelPackage package = new TravelPackage();
+            package.PkgName = pkgName;
+            package.PkgStartDate = pkgStartDate;
+            package.PkgEndDate = pkgEndDate;
+            package.PkgDesc = pkgDesc;
+            package.PkgBasePrice = price;
+            package.PkgAgencyCommission = commish;
+
+            // call insert command
+            TravelPackageDB.AddPackage(package);
+
+            // clear fields
+            txtPkgName.Text = "";
+            dtpStartDate.Value = DateTime.Today;
+            dtpEndDate.Value = DateTime.Today;
+            txtPkgDesc.Text = "";
+            txtPkgBasePrice.Text = "";
+            txtPkgAgncCommish.Text = "";
+
             displayPackages();
         }
         //Display all packages from list
@@ -43,8 +75,8 @@ namespace TravelExperts
                 lvi.SubItems.Add((package.PkgStartDate).ToShortDateString());
                 lvi.SubItems.Add((package.PkgEndDate).ToShortDateString());
                 lvi.SubItems.Add(package.PkgDesc);
-                lvi.SubItems.Add(package.PkgBasePrice.ToString("c"));
-                lvi.SubItems.Add(package.PkgAgencyCommission.ToString("c"));
+                lvi.SubItems.Add(package.PkgBasePrice.ToString());
+                lvi.SubItems.Add(package.PkgAgencyCommission.ToString());
                 lstPackages.Items.Add(lvi);
                 i++;
             }

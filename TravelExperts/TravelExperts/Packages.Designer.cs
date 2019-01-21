@@ -30,12 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.listPackages = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPkgName = new System.Windows.Forms.TextBox();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.txtPkgDesc = new System.Windows.Forms.TextBox();
+            this.txtPkgBasePrice = new System.Windows.Forms.TextBox();
+            this.txtPkgAgncCommish = new System.Windows.Forms.TextBox();
             this.btnAddPackage = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnBackPage = new System.Windows.Forms.Button();
@@ -69,51 +69,51 @@
             this.listPackages.Size = new System.Drawing.Size(650, 147);
             this.listPackages.TabIndex = 3;
             // 
-            // textBox1
+            // txtPkgName
             // 
-            this.textBox1.Location = new System.Drawing.Point(73, 301);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtPkgName.Location = new System.Drawing.Point(73, 301);
+            this.txtPkgName.Name = "txtPkgName";
+            this.txtPkgName.Size = new System.Drawing.Size(219, 20);
+            this.txtPkgName.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(299, 301);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(109, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(299, 301);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(109, 20);
+            this.dtpStartDate.TabIndex = 5;
             // 
-            // dateTimePicker2
+            // dtpEndDate
             // 
-            this.dateTimePicker2.CustomFormat = "";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(414, 301);
-            this.dateTimePicker2.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(109, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.dtpEndDate.CustomFormat = "";
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDate.Location = new System.Drawing.Point(414, 301);
+            this.dtpEndDate.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(109, 20);
+            this.dtpEndDate.TabIndex = 5;
             // 
-            // textBox2
+            // txtPkgDesc
             // 
-            this.textBox2.Location = new System.Drawing.Point(73, 342);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(450, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtPkgDesc.Location = new System.Drawing.Point(73, 342);
+            this.txtPkgDesc.Name = "txtPkgDesc";
+            this.txtPkgDesc.Size = new System.Drawing.Size(450, 20);
+            this.txtPkgDesc.TabIndex = 6;
             // 
-            // textBox3
+            // txtPkgBasePrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(73, 388);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(218, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtPkgBasePrice.Location = new System.Drawing.Point(73, 388);
+            this.txtPkgBasePrice.Name = "txtPkgBasePrice";
+            this.txtPkgBasePrice.Size = new System.Drawing.Size(218, 20);
+            this.txtPkgBasePrice.TabIndex = 7;
             // 
-            // textBox4
+            // txtPkgAgncCommish
             // 
-            this.textBox4.Location = new System.Drawing.Point(299, 388);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(224, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtPkgAgncCommish.Location = new System.Drawing.Point(299, 388);
+            this.txtPkgAgncCommish.Name = "txtPkgAgncCommish";
+            this.txtPkgAgncCommish.Size = new System.Drawing.Size(224, 20);
+            this.txtPkgAgncCommish.TabIndex = 8;
             // 
             // btnAddPackage
             // 
@@ -216,12 +216,12 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnBackPage);
             this.Controls.Add(this.btnAddPackage);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPkgAgncCommish);
+            this.Controls.Add(this.txtPkgBasePrice);
+            this.Controls.Add(this.txtPkgDesc);
+            this.Controls.Add(this.dtpEndDate);
+            this.Controls.Add(this.dtpStartDate);
+            this.Controls.Add(this.txtPkgName);
             this.Controls.Add(this.listPackages);
             this.Controls.Add(this.label1);
             this.Name = "Packages";
@@ -236,12 +236,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listPackages;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPkgName;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.TextBox txtPkgDesc;
+        private System.Windows.Forms.TextBox txtPkgBasePrice;
+        private System.Windows.Forms.TextBox txtPkgAgncCommish;
         private System.Windows.Forms.Button btnAddPackage;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBackPage;
