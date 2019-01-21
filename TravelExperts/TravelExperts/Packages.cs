@@ -47,8 +47,8 @@ namespace TravelExperts
             package.PkgStartDate = pkgStartDate;
             package.PkgEndDate = pkgEndDate;
             package.PkgDesc = pkgDesc;
-            package.PkgBasePrice = price;
-            package.PkgAgencyCommission = commish;
+            package.PkgBasePrice = pkgBasePrice;
+            package.PkgAgencyCommission = pkgAgncCommish;
 
             // call insert command
             TravelPackageDB.AddPackage(package);

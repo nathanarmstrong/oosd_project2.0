@@ -34,8 +34,8 @@ namespace TravelExpertsClasses
         private DateTime pkgStartDate;
         private DateTime pkgEndDate;
         private string pkgDesc;
-        private string pkgBasePrice;
-        private string pkgAgencyCommission;
+        private decimal pkgBasePrice;
+        private decimal pkgAgencyCommission;
 
         // Public getters and setters
         public int PkgID
@@ -67,13 +67,13 @@ namespace TravelExpertsClasses
             set { pkgDesc = value; }
         }
 
-        public string PkgBasePrice
+        public decimal PkgBasePrice
         {
             get { return pkgBasePrice; }
             set { pkgBasePrice = value; }
         }
 
-        public string PkgAgencyCommission
+        public decimal PkgAgencyCommission
         {
             get { return pkgAgencyCommission; }
             set { pkgAgencyCommission = value; }

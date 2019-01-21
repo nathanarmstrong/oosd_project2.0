@@ -29,8 +29,8 @@ namespace TravelExpertsClasses
                     travelPackage.PkgStartDate = (DateTime)reader["PkgStartDate"];
                     travelPackage.PkgEndDate = (DateTime)reader["PkgEndDate"];
                     travelPackage.PkgDesc = (string)reader["PkgDesc"];
-                    travelPackage.PkgBasePrice = (reader["PkgBasePrice"]).ToString();
-                    travelPackage.PkgAgencyCommission = (reader["PkgAgencyCommission"]).ToString();
+                    travelPackage.PkgBasePrice = (decimal)reader["PkgBasePrice"];
+                    travelPackage.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
                     packages.Add(travelPackage);
                 }
             }
@@ -48,7 +48,7 @@ namespace TravelExpertsClasses
         {
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
             string insertPackage = "INSERT INTO [Packages] ([PkgName], [PkgStartDate], [PkgEndDate], [PkgDesc], [PkgBasePrice], [PkgAgencyCommission]) " +
-                                   "VALUES(@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission";
+                                   "VALUES(@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
             SqlCommand cmd = new SqlCommand(insertPackage, dbConnect);
             cmd.Parameters.AddWithValue("@PkgName", tp.PkgName);
             cmd.Parameters.AddWithValue("@PkgStartDate", tp.PkgStartDate);
