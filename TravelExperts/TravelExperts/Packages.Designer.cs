@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listPackages = new System.Windows.Forms.ListBox();
             this.txtPkgName = new System.Windows.Forms.TextBox();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -60,14 +59,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Travel Experts Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // listPackages
-            // 
-            this.listPackages.FormattingEnabled = true;
-            this.listPackages.Location = new System.Drawing.Point(73, 110);
-            this.listPackages.Name = "listPackages";
-            this.listPackages.Size = new System.Drawing.Size(650, 147);
-            this.listPackages.TabIndex = 3;
             // 
             // txtPkgName
             // 
@@ -169,9 +160,9 @@
             this.colBasePrice,
             this.colAgComm});
             this.lstPackages.GridLines = true;
-            this.lstPackages.Location = new System.Drawing.Point(12, 160);
+            this.lstPackages.Location = new System.Drawing.Point(50, 107);
             this.lstPackages.Name = "lstPackages";
-            this.lstPackages.Size = new System.Drawing.Size(687, 97);
+            this.lstPackages.Size = new System.Drawing.Size(700, 148);
             this.lstPackages.TabIndex = 15;
             this.lstPackages.UseCompatibleStateImageBehavior = false;
             this.lstPackages.View = System.Windows.Forms.View.Details;
@@ -222,7 +213,6 @@
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.txtPkgName);
-            this.Controls.Add(this.listPackages);
             this.Controls.Add(this.label1);
             this.Name = "Packages";
             this.Text = "Packages";
@@ -235,7 +225,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listPackages;
         private System.Windows.Forms.TextBox txtPkgName;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.DateTimePicker dtpEndDate;

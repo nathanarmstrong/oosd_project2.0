@@ -41,6 +41,11 @@
             this.btnLinkToPackage = new System.Windows.Forms.Button();
             this.btnBackPage = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cbProducts = new System.Windows.Forms.ComboBox();
+            this.cbSuppliers = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -127,9 +132,9 @@
             // btnLinkPS
             // 
             this.btnLinkPS.Enabled = false;
-            this.btnLinkPS.Location = new System.Drawing.Point(492, 101);
+            this.btnLinkPS.Location = new System.Drawing.Point(492, 150);
             this.btnLinkPS.Name = "btnLinkPS";
-            this.btnLinkPS.Size = new System.Drawing.Size(194, 238);
+            this.btnLinkPS.Size = new System.Drawing.Size(194, 28);
             this.btnLinkPS.TabIndex = 9;
             this.btnLinkPS.Text = "Link Prodct + Suplier";
             this.btnLinkPS.UseVisualStyleBackColor = true;
@@ -169,11 +174,62 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // cbProducts
+            // 
+            this.cbProducts.FormattingEnabled = true;
+            this.cbProducts.Location = new System.Drawing.Point(492, 110);
+            this.cbProducts.Name = "cbProducts";
+            this.cbProducts.Size = new System.Drawing.Size(193, 21);
+            this.cbProducts.TabIndex = 12;
+            this.cbProducts.SelectedIndexChanged += new System.EventHandler(this.cbProducts_SelectedIndexChanged);
+            // 
+            // cbSuppliers
+            // 
+            this.cbSuppliers.FormattingEnabled = true;
+            this.cbSuppliers.Location = new System.Drawing.Point(493, 201);
+            this.cbSuppliers.Name = "cbSuppliers";
+            this.cbSuppliers.Size = new System.Drawing.Size(191, 21);
+            this.cbSuppliers.TabIndex = 13;
+            this.cbSuppliers.SelectedIndexChanged += new System.EventHandler(this.cbSuppliers_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(490, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Products";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(490, 185);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Suppliers";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(496, 249);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(187, 38);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Suppliers_Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 450);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbSuppliers);
+            this.Controls.Add(this.cbProducts);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnBackPage);
             this.Controls.Add(this.btnLinkToPackage);
@@ -210,5 +266,10 @@
         private System.Windows.Forms.Button btnLinkToPackage;
         private System.Windows.Forms.Button btnBackPage;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbProducts;
+        private System.Windows.Forms.ComboBox cbSuppliers;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnClear;
     }
 }

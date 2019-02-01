@@ -56,7 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PackageProductSupplier.cs" />
+    <Compile Include="PackageProductSupplierDB.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductSuppliers.cs" />
+    <Compile Include="ProductSuppliersDB.cs" />
     <Compile Include="SupplierDB.cs" />
     <Compile Include="TravelExpertsDB.cs" />
     <Compile Include="TravelPackage.cs" />

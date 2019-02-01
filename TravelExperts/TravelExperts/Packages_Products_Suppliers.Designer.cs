@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnBackPage = new System.Windows.Forms.Button();
+            this.cbPackage = new System.Windows.Forms.ComboBox();
+            this.cbProSup = new System.Windows.Forms.ComboBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,28 +49,12 @@
             this.label1.Text = "Travel Experts Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(32, 116);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(309, 225);
-            this.listBox1.TabIndex = 5;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(382, 115);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(306, 225);
-            this.listBox2.TabIndex = 6;
-            // 
             // btnLink
             // 
             this.btnLink.Enabled = false;
-            this.btnLink.Location = new System.Drawing.Point(228, 372);
+            this.btnLink.Location = new System.Drawing.Point(208, 183);
             this.btnLink.Name = "btnLink";
-            this.btnLink.Size = new System.Drawing.Size(260, 37);
+            this.btnLink.Size = new System.Drawing.Size(344, 37);
             this.btnLink.TabIndex = 7;
             this.btnLink.Text = "&Link Package to Product_Supliers";
             this.btnLink.UseVisualStyleBackColor = true;
@@ -99,16 +84,45 @@
             this.btnBackPage.UseVisualStyleBackColor = false;
             this.btnBackPage.Click += new System.EventHandler(this.btnBackPage_Click);
             // 
+            // cbPackage
+            // 
+            this.cbPackage.FormattingEnabled = true;
+            this.cbPackage.Location = new System.Drawing.Point(32, 123);
+            this.cbPackage.Name = "cbPackage";
+            this.cbPackage.Size = new System.Drawing.Size(309, 21);
+            this.cbPackage.TabIndex = 14;
+            this.cbPackage.SelectedIndexChanged += new System.EventHandler(this.cbPackage_SelectedIndexChanged);
+            // 
+            // cbProSup
+            // 
+            this.cbProSup.FormattingEnabled = true;
+            this.cbProSup.Location = new System.Drawing.Point(382, 123);
+            this.cbProSup.Name = "cbProSup";
+            this.cbProSup.Size = new System.Drawing.Size(306, 21);
+            this.cbProSup.TabIndex = 15;
+            this.cbProSup.SelectedIndexChanged += new System.EventHandler(this.cbProSup_SelectedIndexChanged);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(277, 277);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(183, 37);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Packages_Products_Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 450);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.cbProSup);
+            this.Controls.Add(this.cbPackage);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnBackPage);
             this.Controls.Add(this.btnLink);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Name = "Packages_Products_Suppliers";
             this.Text = "Packages_Products_Suppliers";
@@ -120,10 +134,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button btnLink;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBackPage;
+        private System.Windows.Forms.ComboBox cbPackage;
+        private System.Windows.Forms.ComboBox cbProSup;
+        private System.Windows.Forms.Button btnClear;
     }
 }

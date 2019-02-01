@@ -10,18 +10,10 @@ namespace TravelExpertsClasses
     public class Supplier
 
     {
-        private int supplierId;
-        private string supplierName;
-
-
         //public getters and setters
         public int SupplierId{get;set; }
 
-        public string SupName
-        {
-            get { return supplierName; }
-            set { supplierName = value; }
-        }
+        public string SupName{ get; set; }
 
         // constructors
 
