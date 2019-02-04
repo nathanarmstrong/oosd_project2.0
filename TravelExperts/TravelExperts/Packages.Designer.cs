@@ -46,6 +46,12 @@
             this.colDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colBasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAgComm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +69,7 @@
             // txtPkgName
             // 
             this.txtPkgName.Location = new System.Drawing.Point(73, 301);
+            this.txtPkgName.MaxLength = 50;
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(219, 20);
             this.txtPkgName.TabIndex = 4;
@@ -74,6 +81,7 @@
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(109, 20);
             this.dtpStartDate.TabIndex = 5;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // dtpEndDate
             // 
@@ -84,26 +92,28 @@
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(109, 20);
             this.dtpEndDate.TabIndex = 5;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
             // txtPkgDesc
             // 
-            this.txtPkgDesc.Location = new System.Drawing.Point(73, 342);
+            this.txtPkgDesc.Location = new System.Drawing.Point(73, 350);
+            this.txtPkgDesc.MaxLength = 50;
             this.txtPkgDesc.Name = "txtPkgDesc";
             this.txtPkgDesc.Size = new System.Drawing.Size(450, 20);
             this.txtPkgDesc.TabIndex = 6;
             // 
             // txtPkgBasePrice
             // 
-            this.txtPkgBasePrice.Location = new System.Drawing.Point(73, 388);
+            this.txtPkgBasePrice.Location = new System.Drawing.Point(73, 399);
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
-            this.txtPkgBasePrice.Size = new System.Drawing.Size(218, 20);
+            this.txtPkgBasePrice.Size = new System.Drawing.Size(107, 20);
             this.txtPkgBasePrice.TabIndex = 7;
             // 
             // txtPkgAgncCommish
             // 
-            this.txtPkgAgncCommish.Location = new System.Drawing.Point(299, 388);
+            this.txtPkgAgncCommish.Location = new System.Drawing.Point(205, 399);
             this.txtPkgAgncCommish.Name = "txtPkgAgncCommish";
-            this.txtPkgAgncCommish.Size = new System.Drawing.Size(224, 20);
+            this.txtPkgAgncCommish.Size = new System.Drawing.Size(142, 20);
             this.txtPkgAgncCommish.TabIndex = 8;
             // 
             // btnAddPackage
@@ -159,13 +169,15 @@
             this.colDesc,
             this.colBasePrice,
             this.colAgComm});
+            this.lstPackages.FullRowSelect = true;
             this.lstPackages.GridLines = true;
-            this.lstPackages.Location = new System.Drawing.Point(50, 107);
+            this.lstPackages.Location = new System.Drawing.Point(31, 111);
             this.lstPackages.Name = "lstPackages";
             this.lstPackages.Size = new System.Drawing.Size(700, 148);
             this.lstPackages.TabIndex = 15;
             this.lstPackages.UseCompatibleStateImageBehavior = false;
             this.lstPackages.View = System.Windows.Forms.View.Details;
+            this.lstPackages.SelectedIndexChanged += new System.EventHandler(this.lstPackages_SelectedIndexChanged);
             // 
             // colName
             // 
@@ -197,11 +209,71 @@
             this.colAgComm.Text = "Agency Commision";
             this.colAgComm.Width = 109;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(70, 285);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Package Name:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(411, 285);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Package End Date:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(296, 285);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Package Start Date:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(70, 334);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Package Description:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(202, 383);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(145, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Package Agency Commision:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(73, 383);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Package Base Price:";
+            // 
             // Packages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lstPackages);
             this.Controls.Add(this.btnLinkProSup);
             this.Controls.Add(this.btnExit);
@@ -242,5 +314,11 @@
         private System.Windows.Forms.ColumnHeader colDesc;
         private System.Windows.Forms.ColumnHeader colBasePrice;
         private System.Windows.Forms.ColumnHeader colAgComm;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

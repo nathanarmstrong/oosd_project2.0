@@ -88,6 +88,7 @@
     <Compile Include="Suppliers_Products.Designer.cs">
       <DependentUpon>Suppliers_Products.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validator.cs" />
     <EmbeddedResource Include="AdminPannel.resx">
       <DependentUpon>AdminPannel.cs</DependentUpon>
     </EmbeddedResource>

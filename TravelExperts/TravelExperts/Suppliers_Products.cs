@@ -33,15 +33,17 @@ namespace TravelExperts
         // Adds product by name to the list of products and appends it to DB
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
-            
-            string product = txtProducts.Text;
-            Product pro = new Product();
-            pro.ProdName = product;
-            pro.ProductId = ProductDB.AddProduct(pro);
-            products = ProductDB.GetProducts();
-            displayProducts();
-            listProducts();
-            txtProducts.Clear();
+            if (Validator.IsProvided(txtProducts, "Product Name"))
+            {
+                string product = txtProducts.Text;
+                Product pro = new Product();
+                pro.ProdName = product;
+                pro.ProductId = ProductDB.AddProduct(pro);
+                products = ProductDB.GetProducts();
+                displayProducts();
+                listProducts();
+                txtProducts.Clear();
+            }
         }
         // Take all products in list and display them
         private void displayProducts()
@@ -57,21 +59,24 @@ namespace TravelExperts
         private void btnAddSuppliers_Click(object sender, EventArgs e)
         {
             // get input supplier.Text and append to list and then DB
-            string supplier = txtSuppliers.Text;
-            foreach(Supplier createdSup in suppliers)
+            if (Validator.IsProvided(txtSuppliers, "Supplier Name"))
             {
-                if(createdSup.SupName == supplier)
+                string supplier = txtSuppliers.Text;
+                foreach(Supplier createdSup in suppliers)
                 {
-                    MessageBox.Show("That supllier already exists");
+                    if(createdSup.SupName == supplier)
+                    {
+                        MessageBox.Show("That supllier already exists");
+                    }
                 }
+                Supplier sup = new Supplier();
+                sup.SupName = supplier;
+                sup.SupplierId = SupplierDB.AddSupplier(sup);
+                suppliers = SupplierDB.GetSuppliers();
+                displaySuppliers();
+                listSuppliers();
+                txtSuppliers.Clear();
             }
-            Supplier sup = new Supplier();
-            sup.SupName = supplier;
-            sup.SupplierId = SupplierDB.AddSupplier(sup);
-            suppliers = SupplierDB.GetSuppliers();
-            displaySuppliers();
-            listSuppliers();
-            txtSuppliers.Clear();
         }
         private void displaySuppliers()
         {

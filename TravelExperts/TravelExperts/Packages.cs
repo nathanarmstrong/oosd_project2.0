@@ -28,40 +28,61 @@ namespace TravelExperts
 
         private void btnAddPackage_Click(object sender, EventArgs e)
         {
-            // TODO: get all input field.Text and append to packages list then SQL DB
-            // get input fields
-            string pkgName = txtPkgName.Text;
-            DateTime pkgStartDate = dtpStartDate.Value;
-            DateTime pkgEndDate = dtpEndDate.Value;
-            string pkgDesc = txtPkgDesc.Text;
-            decimal pkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-            decimal pkgAgncCommish = Convert.ToDecimal(txtPkgAgncCommish.Text);
+            //if (Validator.IsProvided(txtPkgName, "Package Name ") &&
+            //Validator.IsProvided(txtPkgDesc, "Package Description ") &&
+            //Validator.IsProvided(txtPkgBasePrice, "Package Base Price ") &&
+            //Validator.IsProvided(txtPkgAgncCommish, "Package Commission "))
 
-            // convert to currency?
-            string price = string.Format("{0:C}", pkgBasePrice);
-            string commish = string.Format("{0:C}", pkgAgncCommish);
+            if (Validator.IsProvided(txtPkgName, "Package Name") &&
+            Validator.IsProvided(txtPkgDesc, "Package Description") &&
+            Validator.IsProvided(txtPkgBasePrice, "Package Base Price") &&
+            Validator.IsNonNegativeMoney(txtPkgBasePrice, "Package Base Price"))
+                {
+                if (dtpStartDate.Value < dtpEndDate.Value)
+                {
+                    // get input fields
+                    string pkgName = txtPkgName.Text;
+                    DateTime pkgStartDate = dtpStartDate.Value;
+                    DateTime pkgEndDate = dtpEndDate.Value;
+                    string pkgDesc = txtPkgDesc.Text;
+                    decimal pkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+                    decimal pkgAgncCommish = 0;
+                    if (txtPkgAgncCommish.Text == "")
+                    {
+                        txtPkgAgncCommish.Text = null;
+                    }
+                    else
+                    {
+                        pkgAgncCommish = Convert.ToDecimal(txtPkgAgncCommish.Text);
+                    }
+                    //decimal pkgAgncCommish = Convert.ToDecimal(txtPkgAgncCommish.Text);
+                
+                    //create package class
+                    TravelPackage package = new TravelPackage();
+                    package.PkgName = pkgName;
+                    package.PkgStartDate = pkgStartDate;
+                    package.PkgEndDate = pkgEndDate;
+                    package.PkgDesc = pkgDesc;
+                    package.PkgBasePrice = pkgBasePrice;
+                    package.PkgAgencyCommission = pkgAgncCommish;
 
-            //create package class
-            TravelPackage package = new TravelPackage();
-            package.PkgName = pkgName;
-            package.PkgStartDate = pkgStartDate;
-            package.PkgEndDate = pkgEndDate;
-            package.PkgDesc = pkgDesc;
-            package.PkgBasePrice = pkgBasePrice;
-            package.PkgAgencyCommission = pkgAgncCommish;
+                    // call insert command
+                    TravelPackageDB.AddPackage(package);
 
-            // call insert command
-            TravelPackageDB.AddPackage(package);
+                    // clear fields
+                    txtPkgName.Text = "";
+                    dtpStartDate.Value = DateTime.Today;
+                    txtPkgDesc.Text = "";
+                    txtPkgBasePrice.Text = "";
+                    txtPkgAgncCommish.Text = "";
 
-            // clear fields
-            txtPkgName.Text = "";
-            dtpStartDate.Value = DateTime.Today;
-            dtpEndDate.Value = DateTime.Today;
-            txtPkgDesc.Text = "";
-            txtPkgBasePrice.Text = "";
-            txtPkgAgncCommish.Text = "";
-
-            displayPackages();
+                    displayPackages();
+                }
+                else
+                {
+                    MessageBox.Show("The Start Date must be before the End Date");
+                }
+            }
         }
         //Display all packages from list
         private void displayPackages()
@@ -75,21 +96,11 @@ namespace TravelExperts
                 lvi.SubItems.Add((package.PkgStartDate).ToShortDateString());
                 lvi.SubItems.Add((package.PkgEndDate).ToShortDateString());
                 lvi.SubItems.Add(package.PkgDesc);
-                lvi.SubItems.Add(package.PkgBasePrice.ToString());
-                lvi.SubItems.Add(package.PkgAgencyCommission.ToString());
+                lvi.SubItems.Add(package.PkgBasePrice.ToString("c"));
+                lvi.SubItems.Add(package.PkgAgencyCommission.ToString("c"));
                 lstPackages.Items.Add(lvi);
                 i++;
             }
-
-            //foreach (TravelPackage package in packages)
-            //{
-            //    listPackages.Items.Add(package.PkgName + "," + package.PkgDesc);
-            //}
-
-
-            //packages = TravelPackageDB.GetTavelPackage();
-            //listPackages.DataSource = packages;
-
         }
         // Close Application
         // By Nathan Armstrong
@@ -121,8 +132,24 @@ namespace TravelExperts
         // When form loads get all data from DB and display it
         private void Packages_Load(object sender, EventArgs e)
         {
-            // TODO: get all info from DB and append to list of packages
             displayPackages();
+            dtpStartDate.MinDate = DateTime.Today;
+            dtpEndDate.MinDate = dtpStartDate.Value.AddDays(1);
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpEndDate.MinDate = dtpStartDate.Value.AddDays(1);
+        }
+
+        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstPackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

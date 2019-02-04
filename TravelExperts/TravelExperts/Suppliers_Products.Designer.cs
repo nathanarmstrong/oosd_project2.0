@@ -80,6 +80,7 @@
             // txtProducts
             // 
             this.txtProducts.Location = new System.Drawing.Point(38, 377);
+            this.txtProducts.MaxLength = 50;
             this.txtProducts.Name = "txtProducts";
             this.txtProducts.Size = new System.Drawing.Size(184, 20);
             this.txtProducts.TabIndex = 5;
@@ -87,6 +88,7 @@
             // txtSuppliers
             // 
             this.txtSuppliers.Location = new System.Drawing.Point(259, 377);
+            this.txtSuppliers.MaxLength = 255;
             this.txtSuppliers.Name = "txtSuppliers";
             this.txtSuppliers.Size = new System.Drawing.Size(184, 20);
             this.txtSuppliers.TabIndex = 5;
