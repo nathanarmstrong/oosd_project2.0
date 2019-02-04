@@ -71,6 +71,26 @@ namespace TravelExpertsClasses
                 con.Close();
             }
         }
-
+        public static void DeleteSupplier(string supplier)
+        {
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string deletePackage = "DELETE FROM [Suppliers] " +
+                                   "WHERE SupName = @SupName";
+            SqlCommand cmd = new SqlCommand(deletePackage, dbConnect);
+            cmd.Parameters.AddWithValue("@SupName", supplier);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+        }
     }
 }

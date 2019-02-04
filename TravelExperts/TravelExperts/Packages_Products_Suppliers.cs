@@ -22,6 +22,7 @@ namespace TravelExperts
         // TODO: create a list of all Suppliers_Products and list of Packages
         List<TravelPackage> packages = new List<TravelPackage>();
         List<ProductSuppliers> ProSups = new List<ProductSuppliers>();
+        List<string> CorProSups = new List<string>();
         int selectedProSup = 0;
         int selectedPackage = 0;
         public Packages_Products_Suppliers()
@@ -72,6 +73,15 @@ namespace TravelExperts
             }
             // TODO: Get all packages from list and display in list box
         }
+        private void displayProSup()
+        {
+            lsbPackageProducts.Items.Clear();
+            foreach (string CorProSup in CorProSups)
+            {
+                lsbPackageProducts.Items.Add(CorProSup);
+            }
+            
+        }
         //Close Application
         //By Nathan Armstrong
         private void btnExit_Click(object sender, EventArgs e)
@@ -88,9 +98,9 @@ namespace TravelExperts
         private void cbPackage_SelectedIndexChanged(object sender, EventArgs e)
         {
             listProSup();
+            CorProSups.Clear();
             string select = cbPackage.SelectedItem.ToString();
             List<PackageProductSupplier> corispondingProSup = new List<PackageProductSupplier>();
-            //TODO get the id of the selected package
             foreach (TravelPackage package in packages)
             {
                 if(select == package.PkgName)
@@ -104,17 +114,17 @@ namespace TravelExperts
                             if (cProSup.ProductSupplierID == ProSup.ProductSupplierId)
                             {
                                 cbProSup.Items.Remove(ProSup.ProdName + " " + ProSup.SupName);
-                            }
+                                CorProSups.Add(ProSup.ProdName + " " + ProSup.SupName);
+                            }  
                         }
                     }
                 }
-
             }
+            displayProSup();
             if (selectedProSup > 0)
             {
                 btnLink.Enabled = true;
             }
-
         }
 
         private void cbProSup_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,11 +134,9 @@ namespace TravelExperts
             List<PackageProductSupplier> corispondingPackage = new List<PackageProductSupplier>();
             foreach (ProductSuppliers ProSup in ProSups)
             {
-                
                 string ProSupString = ProSup.ProdName + " " + ProSup.SupName;
                 if (select == ProSupString)
                 {
-                    MessageBox.Show(ProSup.ProductSupplierId.ToString());
                     selectedProSup = ProSup.ProductSupplierId;
                     corispondingPackage = PackageProductSupplierDB.GetPackage(selectedProSup);
                     foreach(PackageProductSupplier cpack in corispondingPackage)
@@ -147,13 +155,13 @@ namespace TravelExperts
             {
                 btnLink.Enabled = true;
             }
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            cbPackage.SelectedIndex = -1;
-            cbProSup.SelectedIndex = -1;
+            cbPackage.Text = "";
+            cbProSup.Text = "";
+            lsbPackageProducts.Items.Clear();
             btnLink.Enabled = false;
         }
     }

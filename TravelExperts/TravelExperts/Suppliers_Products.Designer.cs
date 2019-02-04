@@ -46,6 +46,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnDeleteSupplier = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +70,7 @@
             this.lbProducts.Name = "lbProducts";
             this.lbProducts.Size = new System.Drawing.Size(184, 238);
             this.lbProducts.TabIndex = 4;
+            this.lbProducts.SelectedIndexChanged += new System.EventHandler(this.lbProducts_SelectedIndexChanged);
             // 
             // lbSuppliers
             // 
@@ -76,10 +79,11 @@
             this.lbSuppliers.Name = "lbSuppliers";
             this.lbSuppliers.Size = new System.Drawing.Size(184, 238);
             this.lbSuppliers.TabIndex = 4;
+            this.lbSuppliers.SelectedIndexChanged += new System.EventHandler(this.lbSuppliers_SelectedIndexChanged);
             // 
             // txtProducts
             // 
-            this.txtProducts.Location = new System.Drawing.Point(38, 377);
+            this.txtProducts.Location = new System.Drawing.Point(38, 365);
             this.txtProducts.MaxLength = 50;
             this.txtProducts.Name = "txtProducts";
             this.txtProducts.Size = new System.Drawing.Size(184, 20);
@@ -87,7 +91,7 @@
             // 
             // txtSuppliers
             // 
-            this.txtSuppliers.Location = new System.Drawing.Point(259, 377);
+            this.txtSuppliers.Location = new System.Drawing.Point(259, 365);
             this.txtSuppliers.MaxLength = 255;
             this.txtSuppliers.Name = "txtSuppliers";
             this.txtSuppliers.Size = new System.Drawing.Size(184, 20);
@@ -96,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 355);
+            this.label2.Location = new System.Drawing.Point(41, 343);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 6;
@@ -105,7 +109,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(265, 355);
+            this.label3.Location = new System.Drawing.Point(265, 343);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 6;
@@ -113,7 +117,7 @@
             // 
             // btnAddProducts
             // 
-            this.btnAddProducts.Location = new System.Drawing.Point(38, 412);
+            this.btnAddProducts.Location = new System.Drawing.Point(38, 395);
             this.btnAddProducts.Name = "btnAddProducts";
             this.btnAddProducts.Size = new System.Drawing.Size(184, 25);
             this.btnAddProducts.TabIndex = 7;
@@ -123,7 +127,7 @@
             // 
             // btnAddSuppliers
             // 
-            this.btnAddSuppliers.Location = new System.Drawing.Point(259, 412);
+            this.btnAddSuppliers.Location = new System.Drawing.Point(259, 391);
             this.btnAddSuppliers.Name = "btnAddSuppliers";
             this.btnAddSuppliers.Size = new System.Drawing.Size(184, 25);
             this.btnAddSuppliers.TabIndex = 8;
@@ -222,11 +226,35 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.Enabled = false;
+            this.btnDeleteProduct.Location = new System.Drawing.Point(74, 426);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(110, 30);
+            this.btnDeleteProduct.TabIndex = 16;
+            this.btnDeleteProduct.Text = "&Delete Product";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+            // 
+            // btnDeleteSupplier
+            // 
+            this.btnDeleteSupplier.Enabled = false;
+            this.btnDeleteSupplier.Location = new System.Drawing.Point(291, 426);
+            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
+            this.btnDeleteSupplier.Size = new System.Drawing.Size(110, 30);
+            this.btnDeleteSupplier.TabIndex = 17;
+            this.btnDeleteSupplier.Text = "&Delete Supplier";
+            this.btnDeleteSupplier.UseVisualStyleBackColor = true;
+            this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
+            // 
             // Suppliers_Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 450);
+            this.ClientSize = new System.Drawing.Size(720, 461);
+            this.Controls.Add(this.btnDeleteSupplier);
+            this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -273,5 +301,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.Button btnDeleteSupplier;
     }
 }

@@ -67,5 +67,26 @@ namespace TravelExpertsClasses
                 con.Close();
             }
         }
+        public static void DeleteProduct(string product)
+        {
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string deletePackage = "DELETE FROM [Products] " +
+                                   "WHERE ProdName = @ProdName";
+            SqlCommand cmd = new SqlCommand(deletePackage, dbConnect);
+            cmd.Parameters.AddWithValue("@ProdName", product);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+        }
     }
 }

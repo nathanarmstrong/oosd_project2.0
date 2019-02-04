@@ -40,6 +40,7 @@
             this.btnBackPage = new System.Windows.Forms.Button();
             this.btnLinkProSup = new System.Windows.Forms.Button();
             this.lstPackages = new System.Windows.Forms.ListView();
+            this.colPkgID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colStartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colEndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,6 +53,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEditPackage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -98,29 +101,31 @@
             // 
             this.txtPkgDesc.Location = new System.Drawing.Point(73, 350);
             this.txtPkgDesc.MaxLength = 50;
+            this.txtPkgDesc.Multiline = true;
             this.txtPkgDesc.Name = "txtPkgDesc";
-            this.txtPkgDesc.Size = new System.Drawing.Size(450, 20);
+            this.txtPkgDesc.Size = new System.Drawing.Size(273, 41);
             this.txtPkgDesc.TabIndex = 6;
             // 
             // txtPkgBasePrice
             // 
-            this.txtPkgBasePrice.Location = new System.Drawing.Point(73, 399);
+            this.txtPkgBasePrice.Location = new System.Drawing.Point(72, 410);
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
             this.txtPkgBasePrice.Size = new System.Drawing.Size(107, 20);
             this.txtPkgBasePrice.TabIndex = 7;
+            this.txtPkgBasePrice.TextChanged += new System.EventHandler(this.txtPkgBasePrice_TextChanged);
             // 
             // txtPkgAgncCommish
             // 
-            this.txtPkgAgncCommish.Location = new System.Drawing.Point(205, 399);
+            this.txtPkgAgncCommish.Location = new System.Drawing.Point(204, 410);
             this.txtPkgAgncCommish.Name = "txtPkgAgncCommish";
             this.txtPkgAgncCommish.Size = new System.Drawing.Size(142, 20);
             this.txtPkgAgncCommish.TabIndex = 8;
             // 
             // btnAddPackage
             // 
-            this.btnAddPackage.Location = new System.Drawing.Point(529, 301);
+            this.btnAddPackage.Location = new System.Drawing.Point(377, 334);
             this.btnAddPackage.Name = "btnAddPackage";
-            this.btnAddPackage.Size = new System.Drawing.Size(152, 107);
+            this.btnAddPackage.Size = new System.Drawing.Size(109, 107);
             this.btnAddPackage.TabIndex = 9;
             this.btnAddPackage.Text = "Add Package";
             this.btnAddPackage.UseVisualStyleBackColor = true;
@@ -152,7 +157,7 @@
             // 
             // btnLinkProSup
             // 
-            this.btnLinkProSup.Location = new System.Drawing.Point(694, 342);
+            this.btnLinkProSup.Location = new System.Drawing.Point(678, 278);
             this.btnLinkProSup.Name = "btnLinkProSup";
             this.btnLinkProSup.Size = new System.Drawing.Size(94, 65);
             this.btnLinkProSup.TabIndex = 14;
@@ -163,6 +168,7 @@
             // lstPackages
             // 
             this.lstPackages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colPkgID,
             this.colName,
             this.colStartDate,
             this.colEndDate,
@@ -171,18 +177,23 @@
             this.colAgComm});
             this.lstPackages.FullRowSelect = true;
             this.lstPackages.GridLines = true;
-            this.lstPackages.Location = new System.Drawing.Point(31, 111);
+            this.lstPackages.Location = new System.Drawing.Point(27, 96);
             this.lstPackages.Name = "lstPackages";
-            this.lstPackages.Size = new System.Drawing.Size(700, 148);
+            this.lstPackages.Size = new System.Drawing.Size(745, 153);
             this.lstPackages.TabIndex = 15;
             this.lstPackages.UseCompatibleStateImageBehavior = false;
             this.lstPackages.View = System.Windows.Forms.View.Details;
             this.lstPackages.SelectedIndexChanged += new System.EventHandler(this.lstPackages_SelectedIndexChanged);
             // 
+            // colPkgID
+            // 
+            this.colPkgID.Text = "Package ID";
+            this.colPkgID.Width = 72;
+            // 
             // colName
             // 
             this.colName.Text = "Package Name";
-            this.colName.Width = 114;
+            this.colName.Width = 111;
             // 
             // colStartDate
             // 
@@ -239,7 +250,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 334);
+            this.label5.Location = new System.Drawing.Point(73, 334);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 19;
@@ -248,7 +259,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(202, 383);
+            this.label6.Location = new System.Drawing.Point(201, 394);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 13);
             this.label6.TabIndex = 20;
@@ -257,17 +268,41 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(73, 383);
+            this.label7.Location = new System.Drawing.Point(72, 394);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 13);
             this.label7.TabIndex = 21;
             this.label7.Text = "Package Base Price:";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(599, 353);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(62, 68);
+            this.btnDelete.TabIndex = 22;
+            this.btnDelete.Text = "Delete Package";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEditPackage
+            // 
+            this.btnEditPackage.Enabled = false;
+            this.btnEditPackage.Location = new System.Drawing.Point(492, 360);
+            this.btnEditPackage.Name = "btnEditPackage";
+            this.btnEditPackage.Size = new System.Drawing.Size(101, 54);
+            this.btnEditPackage.TabIndex = 23;
+            this.btnEditPackage.Text = "&Edit Package";
+            this.btnEditPackage.UseVisualStyleBackColor = true;
+            this.btnEditPackage.Click += new System.EventHandler(this.btnEditPackage_Click);
             // 
             // Packages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEditPackage);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -320,5 +355,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ColumnHeader colPkgID;
+        private System.Windows.Forms.Button btnEditPackage;
     }
 }

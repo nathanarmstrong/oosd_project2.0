@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsClasses;
@@ -19,8 +20,9 @@ namespace TravelExperts
      */
     public partial class Packages : Form
     {
-        // TODO: Create list Package class called packages
         List<TravelPackage> packages;
+        private TravelPackage selectedPackage;
+
         public Packages()
         {
             InitializeComponent();
@@ -28,11 +30,6 @@ namespace TravelExperts
 
         private void btnAddPackage_Click(object sender, EventArgs e)
         {
-            //if (Validator.IsProvided(txtPkgName, "Package Name ") &&
-            //Validator.IsProvided(txtPkgDesc, "Package Description ") &&
-            //Validator.IsProvided(txtPkgBasePrice, "Package Base Price ") &&
-            //Validator.IsProvided(txtPkgAgncCommish, "Package Commission "))
-
             if (Validator.IsProvided(txtPkgName, "Package Name") &&
             Validator.IsProvided(txtPkgDesc, "Package Description") &&
             Validator.IsProvided(txtPkgBasePrice, "Package Base Price") &&
@@ -55,8 +52,7 @@ namespace TravelExperts
                     {
                         pkgAgncCommish = Convert.ToDecimal(txtPkgAgncCommish.Text);
                     }
-                    //decimal pkgAgncCommish = Convert.ToDecimal(txtPkgAgncCommish.Text);
-                
+
                     //create package class
                     TravelPackage package = new TravelPackage();
                     package.PkgName = pkgName;
@@ -84,20 +80,24 @@ namespace TravelExperts
                 }
             }
         }
+
         //Display all packages from list
         private void displayPackages()
         {
             // lists items in list view in specified sub list items
+            lstPackages.Items.Clear();
             packages = TravelPackageDB.GetTavelPackage();
             int i = 0;
             foreach (TravelPackage package in packages)
             {
-                ListViewItem lvi = new ListViewItem(package.PkgName, i); // new list view item starting with package name
+                ListViewItem lvi = new ListViewItem(package.PkgID.ToString(), i); // new list view item starting with package name
+                lvi.SubItems.Add(package.PkgName);
                 lvi.SubItems.Add((package.PkgStartDate).ToShortDateString());
                 lvi.SubItems.Add((package.PkgEndDate).ToShortDateString());
                 lvi.SubItems.Add(package.PkgDesc);
                 lvi.SubItems.Add(package.PkgBasePrice.ToString("c"));
                 lvi.SubItems.Add(package.PkgAgencyCommission.ToString("c"));
+                
                 lstPackages.Items.Add(lvi);
                 i++;
             }
@@ -128,6 +128,9 @@ namespace TravelExperts
         private void PPS_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Show();
+            displayPackages();
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
         }
         // When form loads get all data from DB and display it
         private void Packages_Load(object sender, EventArgs e)
@@ -149,7 +152,55 @@ namespace TravelExperts
 
         private void lstPackages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            btnEditPackage.Enabled = true;
+            btnDelete.Enabled = true;
+            selectedPackage = new TravelPackage();
+            selectedPackage.PkgID = Convert.ToInt32(lstPackages.FocusedItem.SubItems[0].Text);
+            selectedPackage.PkgName =lstPackages.FocusedItem.SubItems[1].Text;
+            selectedPackage.PkgStartDate = Convert.ToDateTime(lstPackages.FocusedItem.SubItems[2].Text);
+            selectedPackage.PkgEndDate = Convert.ToDateTime(lstPackages.FocusedItem.SubItems[3].Text);
+            selectedPackage.PkgDesc = Convert.ToString(lstPackages.FocusedItem.SubItems[4].Text);
+            selectedPackage.PkgBasePrice = Convert.ToDecimal(lstPackages.FocusedItem.SubItems[5].Text.Substring(1));
+            selectedPackage.PkgAgencyCommission = Convert.ToDecimal(lstPackages.FocusedItem.SubItems[6].Text.Substring(1));
+        }
+
+        private void txtPkgBasePrice_TextChanged(object sender, EventArgs e)
+        {
+            string previousInput = "";
+            Regex r = new Regex(@"[0-9]+(\\.[0-9][0-9]?)?"); // This is the main part, can be altered to match any desired form or limitations
+            Match m = r.Match(txtPkgBasePrice.Text);
+            if (m.Success)
+            {
+                previousInput = txtPkgBasePrice.Text;
+            }
+            else
+            {
+                txtPkgBasePrice.Text = previousInput;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int selectedPkg = Convert.ToInt32(lstPackages.SelectedItems[0].Text);
+            try
+            {
+                TravelPackageDB.DeletePackage(selectedPkg);
+                MessageBox.Show("Package deleted successfully");
+            }
+            catch
+            {
+                MessageBox.Show("Package could not be deleted, contact the administrator");
+            }
+            displayPackages();
+        }
+
+        private void btnEditPackage_Click(object sender, EventArgs e)
+        {
+            EditPackage ppsForm = new EditPackage();
+            ppsForm.package = selectedPackage;
+            ppsForm.Show();
+            this.Hide();
+            ppsForm.FormClosing += PPS_FormClosing;
         }
     }
 }

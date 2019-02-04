@@ -35,6 +35,7 @@
             this.cbPackage = new System.Windows.Forms.ComboBox();
             this.cbProSup = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.lsbPackageProducts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +53,7 @@
             // btnLink
             // 
             this.btnLink.Enabled = false;
-            this.btnLink.Location = new System.Drawing.Point(208, 183);
+            this.btnLink.Location = new System.Drawing.Point(200, 340);
             this.btnLink.Name = "btnLink";
             this.btnLink.Size = new System.Drawing.Size(344, 37);
             this.btnLink.TabIndex = 7;
@@ -87,7 +88,7 @@
             // cbPackage
             // 
             this.cbPackage.FormattingEnabled = true;
-            this.cbPackage.Location = new System.Drawing.Point(32, 123);
+            this.cbPackage.Location = new System.Drawing.Point(21, 299);
             this.cbPackage.Name = "cbPackage";
             this.cbPackage.Size = new System.Drawing.Size(309, 21);
             this.cbPackage.TabIndex = 14;
@@ -96,7 +97,7 @@
             // cbProSup
             // 
             this.cbProSup.FormattingEnabled = true;
-            this.cbProSup.Location = new System.Drawing.Point(382, 123);
+            this.cbProSup.Location = new System.Drawing.Point(383, 299);
             this.cbProSup.Name = "cbProSup";
             this.cbProSup.Size = new System.Drawing.Size(306, 21);
             this.cbProSup.TabIndex = 15;
@@ -104,7 +105,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(277, 277);
+            this.btnClear.Location = new System.Drawing.Point(268, 399);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(183, 37);
             this.btnClear.TabIndex = 16;
@@ -112,11 +113,20 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // lsbPackageProducts
+            // 
+            this.lsbPackageProducts.FormattingEnabled = true;
+            this.lsbPackageProducts.Location = new System.Drawing.Point(268, 114);
+            this.lsbPackageProducts.Name = "lsbPackageProducts";
+            this.lsbPackageProducts.Size = new System.Drawing.Size(180, 147);
+            this.lsbPackageProducts.TabIndex = 17;
+            // 
             // Packages_Products_Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 450);
+            this.Controls.Add(this.lsbPackageProducts);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.cbProSup);
             this.Controls.Add(this.cbPackage);
@@ -125,7 +135,6 @@
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.label1);
             this.Name = "Packages_Products_Suppliers";
-            this.Text = "Packages_Products_Suppliers";
             this.Load += new System.EventHandler(this.Packages_Products_Suppliers_Load);
             this.ResumeLayout(false);
 
@@ -140,5 +149,6 @@
         private System.Windows.Forms.ComboBox cbPackage;
         private System.Windows.Forms.ComboBox cbProSup;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ListBox lsbPackageProducts;
     }
 }

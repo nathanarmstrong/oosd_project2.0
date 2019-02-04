@@ -36,18 +36,33 @@ namespace TravelExperts
             if (Validator.IsProvided(txtProducts, "Product Name"))
             {
                 string product = txtProducts.Text;
-                Product pro = new Product();
-                pro.ProdName = product;
-                pro.ProductId = ProductDB.AddProduct(pro);
-                products = ProductDB.GetProducts();
-                displayProducts();
-                listProducts();
-                txtProducts.Clear();
+                bool valid = true;
+                foreach (Product p in products)
+                {
+                    if (p.ProdName == product)
+                    {
+                        MessageBox.Show(product + " already exists");
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid)
+                {
+                    Product pro = new Product();
+                    pro.ProdName = product;
+                    pro.ProductId = ProductDB.AddProduct(pro);
+                    products = ProductDB.GetProducts();
+                    displayProducts();
+                    listProducts();
+                    txtProducts.Clear();
+                    MessageBox.Show(product + " was added");
+                }
             }
         }
         // Take all products in list and display them
         private void displayProducts()
         {
+            products = ProductDB.GetProducts();
             lbProducts.Items.Clear();
             // take all the products from list and display it in the list box
             foreach (Product product in products)
@@ -62,24 +77,32 @@ namespace TravelExperts
             if (Validator.IsProvided(txtSuppliers, "Supplier Name"))
             {
                 string supplier = txtSuppliers.Text;
-                foreach(Supplier createdSup in suppliers)
+                bool valid = true;
+                foreach (Supplier createdSup in suppliers)
                 {
                     if(createdSup.SupName == supplier)
                     {
-                        MessageBox.Show("That supllier already exists");
-                    }
+                        MessageBox.Show(supplier + " already exists");
+                        valid = false;
+                        break;
+                    }  
                 }
-                Supplier sup = new Supplier();
-                sup.SupName = supplier;
-                sup.SupplierId = SupplierDB.AddSupplier(sup);
-                suppliers = SupplierDB.GetSuppliers();
-                displaySuppliers();
-                listSuppliers();
-                txtSuppliers.Clear();
+                if (valid)
+                {
+                    Supplier sup = new Supplier();
+                    sup.SupName = supplier;
+                    sup.SupplierId = SupplierDB.AddSupplier(sup);
+                    suppliers = SupplierDB.GetSuppliers();
+                    displaySuppliers();
+                    listSuppliers();
+                    txtSuppliers.Clear();
+                    MessageBox.Show(supplier + " was added");
+                }
             }
         }
         private void displaySuppliers()
         {
+            suppliers = SupplierDB.GetSuppliers();
             lbSuppliers.Items.Clear();
             // take all the suppliers from list and display it in the list box
             foreach(Supplier supplier in suppliers)
@@ -91,8 +114,8 @@ namespace TravelExperts
         private void Suppliers_Products_Load(object sender, EventArgs e)
         {
             // get all suppliers and products and append to corisonding list
-            products = ProductDB.GetProducts();
-            suppliers = SupplierDB.GetSuppliers();
+            
+            
             displayProducts();
             displaySuppliers();
             listProducts();
@@ -230,14 +253,75 @@ namespace TravelExperts
             {
                 btnLinkPS.Enabled = true;
             }
-            
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            cbProducts.SelectedIndex = -1;
-            cbSuppliers.SelectedIndex = -1;
+            cbProducts.Text = "";
+            cbSuppliers.Text = "";
             btnLinkPS.Enabled = false;
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        { 
+            string selectedProduct = lbProducts.SelectedItem.ToString();
+            var confirmDelete = MessageBox.Show("Are you sure you want to delete " + selectedProduct + "?", "Confirm?", MessageBoxButtons.YesNo);
+            if (confirmDelete == DialogResult.Yes)
+            {
+            try
+            {
+                ProductDB.DeleteProduct(selectedProduct);
+                MessageBox.Show(selectedProduct + " was deleted");
+            }
+            catch
+            {
+                MessageBox.Show(selectedProduct + " could not be deleted, contact the administrator");
+            }
+            displayProducts();
+            listProducts();
+            cbProducts.SelectedIndex = -1;
+            cbProducts.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(selectedProduct + " was not deleted");
+            }
+        }
+
+        private void btnDeleteSupplier_Click(object sender, EventArgs e)
+        {
+            string selectedSupplier = lbSuppliers.SelectedItem.ToString();
+            var confirmDelete = MessageBox.Show("Are you sure you want to delete " + selectedSupplier + "?", "Confirm?", MessageBoxButtons.YesNo);
+            if (confirmDelete == DialogResult.Yes)
+            {
+                try
+                {
+                    SupplierDB.DeleteSupplier(selectedSupplier);
+                    MessageBox.Show(selectedSupplier + " was deleted");
+                }
+                catch
+                {
+                    MessageBox.Show(selectedSupplier + " could not be deleted, contact the administrator");
+                }
+                displaySuppliers();
+                listSuppliers();
+                cbSuppliers.SelectedIndex = -1;
+                cbSuppliers.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(selectedSupplier + " was not deleted");
+            }
+        }
+
+        private void lbProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteProduct.Enabled = true;
+        }
+
+        private void lbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteSupplier.Enabled = true;
         }
     }
 }

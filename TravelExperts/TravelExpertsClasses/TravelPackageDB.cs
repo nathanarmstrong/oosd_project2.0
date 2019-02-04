@@ -71,5 +71,63 @@ namespace TravelExpertsClasses
             }
         }
 
+        public static void DeletePackage(int tp)
+        {
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string deletePackage = "DELETE FROM [Packages] " +
+                                   "WHERE PackageId = @PkgID";
+            SqlCommand cmd = new SqlCommand(deletePackage, dbConnect);
+            cmd.Parameters.AddWithValue("@PkgID", tp);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+        }
+
+        public static bool UpdatePackage(TravelPackage oldPkg, TravelPackage newPkg)
+        {
+            bool success = false;
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string updatePackage = "UPDATE Packages " +
+                                    "SET PkgName = @PkgName, " +
+                                        "PkgDesc = @PkgDesc, " +
+                                        "PkgStartDate = @PkgStartDate, " +
+                                        "PkgEndDate = @PkgEndDate, " +
+                                        "PkgBasePrice = @PkgBasePrice, " +
+                                        "PkgAgencyCommission = @PkgAgencyCommission " +
+                                    "WHERE PackageId = @oldPkgID ";
+            SqlCommand cmd = new SqlCommand(updatePackage, dbConnect);
+            cmd.Parameters.AddWithValue("@PkgName", newPkg.PkgName);
+            cmd.Parameters.AddWithValue("@PkgStartDate", newPkg.PkgStartDate);
+            cmd.Parameters.AddWithValue("@PkgEndDate", newPkg.PkgEndDate);
+            cmd.Parameters.AddWithValue("@PkgDesc", newPkg.PkgDesc);
+            cmd.Parameters.AddWithValue("@PkgBasePrice", newPkg.PkgBasePrice);
+            cmd.Parameters.AddWithValue("@PkgAgencyCommission", newPkg.PkgAgencyCommission);
+            cmd.Parameters.AddWithValue("@oldPkgID", oldPkg.PkgID);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+                success = true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+            return success;
+        }
     }
 }

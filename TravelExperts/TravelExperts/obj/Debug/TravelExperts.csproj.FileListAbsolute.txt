@@ -61,3 +61,4 @@ C:\xampp1\htdocs\GitHub\oosd_project2.0\TravelExperts\TravelExperts\obj\Debug\Tr
 C:\xampp1\htdocs\GitHub\oosd_project2.0\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
 C:\xampp1\htdocs\GitHub\oosd_project2.0\TravelExperts\TravelExperts\obj\Debug\TravelExperts.exe
 C:\xampp1\htdocs\GitHub\oosd_project2.0\TravelExperts\TravelExperts\obj\Debug\TravelExperts.pdb
+C:\xampp1\htdocs\GitHub\oosd_project2.0\TravelExperts\TravelExperts\obj\Debug\TravelExperts.EditPackage.resources
