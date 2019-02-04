@@ -48,6 +48,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnDeleteSupplier = new System.Windows.Forms.Button();
+            this.btnEditProduct = new System.Windows.Forms.Button();
+            this.btnEditSupplier = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -100,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 343);
+            this.label2.Location = new System.Drawing.Point(35, 343);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 6;
@@ -229,9 +231,9 @@
             // btnDeleteProduct
             // 
             this.btnDeleteProduct.Enabled = false;
-            this.btnDeleteProduct.Location = new System.Drawing.Point(74, 426);
+            this.btnDeleteProduct.Location = new System.Drawing.Point(131, 426);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(110, 30);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(91, 30);
             this.btnDeleteProduct.TabIndex = 16;
             this.btnDeleteProduct.Text = "&Delete Product";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
@@ -240,19 +242,43 @@
             // btnDeleteSupplier
             // 
             this.btnDeleteSupplier.Enabled = false;
-            this.btnDeleteSupplier.Location = new System.Drawing.Point(291, 426);
+            this.btnDeleteSupplier.Location = new System.Drawing.Point(355, 426);
             this.btnDeleteSupplier.Name = "btnDeleteSupplier";
-            this.btnDeleteSupplier.Size = new System.Drawing.Size(110, 30);
+            this.btnDeleteSupplier.Size = new System.Drawing.Size(88, 30);
             this.btnDeleteSupplier.TabIndex = 17;
             this.btnDeleteSupplier.Text = "&Delete Supplier";
             this.btnDeleteSupplier.UseVisualStyleBackColor = true;
             this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
+            // 
+            // btnEditProduct
+            // 
+            this.btnEditProduct.Enabled = false;
+            this.btnEditProduct.Location = new System.Drawing.Point(38, 426);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(87, 30);
+            this.btnEditProduct.TabIndex = 18;
+            this.btnEditProduct.Text = "&Edit Product";
+            this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
+            // 
+            // btnEditSupplier
+            // 
+            this.btnEditSupplier.Enabled = false;
+            this.btnEditSupplier.Location = new System.Drawing.Point(259, 426);
+            this.btnEditSupplier.Name = "btnEditSupplier";
+            this.btnEditSupplier.Size = new System.Drawing.Size(80, 30);
+            this.btnEditSupplier.TabIndex = 19;
+            this.btnEditSupplier.Text = "&Edit Supplier";
+            this.btnEditSupplier.UseVisualStyleBackColor = true;
+            this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
             // 
             // Suppliers_Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 461);
+            this.Controls.Add(this.btnEditSupplier);
+            this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnDeleteSupplier);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnClear);
@@ -303,5 +329,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnDeleteSupplier;
+        private System.Windows.Forms.Button btnEditProduct;
+        private System.Windows.Forms.Button btnEditSupplier;
     }
 }

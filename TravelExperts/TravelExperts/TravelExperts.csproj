@@ -73,6 +73,12 @@
     <Compile Include="EditPackage.Designer.cs">
       <DependentUpon>EditPackage.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditProdSup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProdSup.Designer.cs">
+      <DependentUpon>EditProdSup.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileIO.cs" />
     <Compile Include="Packages.cs">
       <SubType>Form</SubType>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditPackage.resx">
       <DependentUpon>EditPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProdSup.resx">
+      <DependentUpon>EditProdSup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packages.resx">
       <DependentUpon>Packages.cs</DependentUpon>

@@ -114,8 +114,6 @@ namespace TravelExperts
         private void Suppliers_Products_Load(object sender, EventArgs e)
         {
             // get all suppliers and products and append to corisonding list
-            
-            
             displayProducts();
             displaySuppliers();
             listProducts();
@@ -164,6 +162,10 @@ namespace TravelExperts
         //By Nathan Armstrong
         private void PPS_FormClosing(object sender, FormClosingEventArgs e)
         {
+            displayProducts();
+            displaySuppliers();
+            listProducts();
+            listSuppliers();
             this.Show();
         }
         // close this form
@@ -179,7 +181,6 @@ namespace TravelExperts
             Application.Exit();
         }
 
-      
         // Add all suppliers to the combo box
         //By:Nathan Armstrong
         private void listSuppliers()
@@ -317,11 +318,31 @@ namespace TravelExperts
         private void lbProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnDeleteProduct.Enabled = true;
+            btnEditProduct.Enabled = true;
         }
 
         private void lbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnDeleteSupplier.Enabled = true;
+            btnEditSupplier.Enabled = true;
+        }
+
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            EditProdSup epsForm = new EditProdSup();
+            epsForm.SelectedProductName = lbProducts.SelectedItem.ToString();
+            epsForm.Show();
+            this.Hide();
+            epsForm.FormClosing += PPS_FormClosing;
+        }
+
+        private void btnEditSupplier_Click(object sender, EventArgs e)
+        {
+            EditProdSup epsForm = new EditProdSup();
+            epsForm.SelectedSupplierName = lbSuppliers.SelectedItem.ToString();
+            epsForm.Show();
+            this.Hide();
+            epsForm.FormClosing += PPS_FormClosing;
         }
     }
 }

@@ -156,7 +156,7 @@ namespace TravelExperts
             btnDelete.Enabled = true;
             selectedPackage = new TravelPackage();
             selectedPackage.PkgID = Convert.ToInt32(lstPackages.FocusedItem.SubItems[0].Text);
-            selectedPackage.PkgName =lstPackages.FocusedItem.SubItems[1].Text;
+            selectedPackage.PkgName = lstPackages.FocusedItem.SubItems[1].Text;
             selectedPackage.PkgStartDate = Convert.ToDateTime(lstPackages.FocusedItem.SubItems[2].Text);
             selectedPackage.PkgEndDate = Convert.ToDateTime(lstPackages.FocusedItem.SubItems[3].Text);
             selectedPackage.PkgDesc = Convert.ToString(lstPackages.FocusedItem.SubItems[4].Text);
@@ -182,16 +182,22 @@ namespace TravelExperts
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int selectedPkg = Convert.ToInt32(lstPackages.SelectedItems[0].Text);
-            try
+            string selectedPkgName = lstPackages.FocusedItem.SubItems[1].Text;
+
+            var confirmDelete = MessageBox.Show("Are you sure you want to delete " + selectedPkgName + "?", "Confirm?", MessageBoxButtons.YesNo);
+            if (confirmDelete == DialogResult.Yes)
             {
-                TravelPackageDB.DeletePackage(selectedPkg);
-                MessageBox.Show("Package deleted successfully");
+                try
+                {
+                    TravelPackageDB.DeletePackage(selectedPkg);
+                    MessageBox.Show("Package deleted successfully");
+                }
+                catch
+                {
+                    MessageBox.Show("Package could not be deleted, contact the administrator");
+                }
+                displayPackages();
             }
-            catch
-            {
-                MessageBox.Show("Package could not be deleted, contact the administrator");
-            }
-            displayPackages();
         }
 
         private void btnEditPackage_Click(object sender, EventArgs e)

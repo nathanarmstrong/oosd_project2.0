@@ -88,5 +88,32 @@ namespace TravelExpertsClasses
                 dbConnect.Close();
             }
         }
+
+        public static bool UpdateProduct(string oldProd, string newProd)
+        {
+            bool success = false;
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string updateProduct = "UPDATE Products " +
+                                    "SET ProdName = @ProdName " +
+                                    "WHERE ProdName = @oldProdId ";
+            SqlCommand cmd = new SqlCommand(updateProduct, dbConnect);
+            cmd.Parameters.AddWithValue("@ProdName", newProd);
+            cmd.Parameters.AddWithValue("@oldProdId", oldProd);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+                success = true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+            return success;
+        }
     }
 }

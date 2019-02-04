@@ -92,5 +92,31 @@ namespace TravelExpertsClasses
                 dbConnect.Close();
             }
         }
+        public static bool UpdateSupplier(string oldSup, string newSup)
+        {
+            bool success = false;
+            SqlConnection dbConnect = TravelExpertsDB.GetConnection();
+            string updateSupplier = "UPDATE Suppliers " +
+                                    "SET SupName = @SupName " +
+                                    "WHERE SupName = @oldSupId ";
+            SqlCommand cmd = new SqlCommand(updateSupplier, dbConnect);
+            cmd.Parameters.AddWithValue("@SupName", newSup);
+            cmd.Parameters.AddWithValue("@oldSupId", oldSup);
+            try
+            {
+                dbConnect.Open();
+                cmd.ExecuteNonQuery();
+                success = true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+            return success;
+        }
     }
 }

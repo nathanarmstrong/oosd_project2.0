@@ -188,7 +188,7 @@
             // colPkgID
             // 
             this.colPkgID.Text = "Package ID";
-            this.colPkgID.Width = 72;
+            this.colPkgID.Width = 0;
             // 
             // colName
             // 
