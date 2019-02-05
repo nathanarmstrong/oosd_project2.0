@@ -52,7 +52,8 @@ namespace TravelExperts
             if (Validator.IsProvided(txtPkgName, "Package Name") &&
             Validator.IsProvided(txtPkgDesc, "Package Description") &&
             Validator.IsProvided(txtPkgBasePrice, "Package Base Price") &&
-            Validator.IsNonNegativeMoney(txtPkgBasePrice, "Package Base Price"))
+            Validator.IsNonNegativeMoney(txtPkgBasePrice, "Package Base Price") &&
+            Validator.IsNonNegativeMoney(txtPkgAgncComm, "Agency Commision"))
             {
                 if (dtpStartDate.Value < dtpEndDate.Value)
                 {

@@ -68,6 +68,8 @@
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(286, 20);
             this.txtPkgName.TabIndex = 4;
+            this.txtPkgName.Enter += new System.EventHandler(this.txtPkgName_Enter);
+            this.txtPkgName.Leave += new System.EventHandler(this.txtPkgName_Leave);
             // 
             // dtpStartDate
             // 
@@ -78,6 +80,8 @@
             this.dtpStartDate.Size = new System.Drawing.Size(87, 20);
             this.dtpStartDate.TabIndex = 8;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
+            this.dtpStartDate.Enter += new System.EventHandler(this.dtpStartDate_Enter);
+            this.dtpStartDate.Leave += new System.EventHandler(this.dtpStartDate_Leave);
             // 
             // dtpEndDate
             // 
@@ -89,6 +93,8 @@
             this.dtpEndDate.Size = new System.Drawing.Size(87, 20);
             this.dtpEndDate.TabIndex = 9;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
+            this.dtpEndDate.Enter += new System.EventHandler(this.dtpEndDate_Enter);
+            this.dtpEndDate.Leave += new System.EventHandler(this.dtpEndDate_Leave);
             // 
             // txtPkgDesc
             // 
@@ -98,23 +104,29 @@
             this.txtPkgDesc.Name = "txtPkgDesc";
             this.txtPkgDesc.Size = new System.Drawing.Size(286, 41);
             this.txtPkgDesc.TabIndex = 5;
+            this.txtPkgDesc.Enter += new System.EventHandler(this.txtPkgDesc_Enter);
+            this.txtPkgDesc.Leave += new System.EventHandler(this.txtPkgDesc_Leave);
             // 
             // txtPkgBasePrice
             // 
             this.txtPkgBasePrice.Location = new System.Drawing.Point(283, 468);
-            this.txtPkgBasePrice.MaxLength = 20;
+            this.txtPkgBasePrice.MaxLength = 12;
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
             this.txtPkgBasePrice.Size = new System.Drawing.Size(83, 20);
             this.txtPkgBasePrice.TabIndex = 6;
             this.txtPkgBasePrice.TextChanged += new System.EventHandler(this.txtPkgBasePrice_TextChanged);
+            this.txtPkgBasePrice.Enter += new System.EventHandler(this.txtPkgBasePrice_Enter);
+            this.txtPkgBasePrice.Leave += new System.EventHandler(this.txtPkgBasePrice_Leave);
             // 
             // txtPkgAgncCommish
             // 
             this.txtPkgAgncCommish.Location = new System.Drawing.Point(283, 494);
-            this.txtPkgAgncCommish.MaxLength = 20;
+            this.txtPkgAgncCommish.MaxLength = 12;
             this.txtPkgAgncCommish.Name = "txtPkgAgncCommish";
             this.txtPkgAgncCommish.Size = new System.Drawing.Size(83, 20);
             this.txtPkgAgncCommish.TabIndex = 7;
+            this.txtPkgAgncCommish.Enter += new System.EventHandler(this.txtPkgAgncCommish_Enter);
+            this.txtPkgAgncCommish.Leave += new System.EventHandler(this.txtPkgAgncCommish_Leave);
             // 
             // btnAddPackage
             // 

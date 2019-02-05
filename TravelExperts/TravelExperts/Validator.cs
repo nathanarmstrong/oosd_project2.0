@@ -58,14 +58,14 @@ namespace TravelExperts
             if (!decimal.TryParse(tb.Text, out num))
             {
                 result = false;
-                MessageBox.Show(name + " has to be a non-negative currency value", "Data entry error");
+                MessageBox.Show(name + " has to be a non-negative value", "Data entry error");
                 tb.SelectAll();
                 tb.Focus();
             }
             else if (num < 0)
             {
                 result = false;
-                MessageBox.Show(name + " has to be a non-negative currency", "Data entry error");
+                MessageBox.Show(name + " has to be a non-negative value", "Data entry error");
                 tb.SelectAll();
                 tb.Focus();
             }

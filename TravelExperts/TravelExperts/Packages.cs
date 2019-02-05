@@ -33,7 +33,8 @@ namespace TravelExperts
             if (Validator.IsProvided(txtPkgName, "Package Name") &&
             Validator.IsProvided(txtPkgDesc, "Package Description") &&
             Validator.IsProvided(txtPkgBasePrice, "Package Base Price") &&
-            Validator.IsNonNegativeMoney(txtPkgBasePrice, "Package Base Price"))
+            Validator.IsNonNegativeMoney(txtPkgBasePrice, "Package Base Price") &&
+            Validator.IsNonNegativeMoney(txtPkgAgncCommish, "Agency Commision"))
                 {
                 if (dtpStartDate.Value < dtpEndDate.Value)
                 {
@@ -181,32 +182,46 @@ namespace TravelExperts
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int selectedPkg = Convert.ToInt32(lstPackages.SelectedItems[0].Text);
-            string selectedPkgName = lstPackages.FocusedItem.SubItems[1].Text;
-
-            var confirmDelete = MessageBox.Show("Are you sure you want to delete " + selectedPkgName + "?", "Confirm?", MessageBoxButtons.YesNo);
-            if (confirmDelete == DialogResult.Yes)
+            if (lstPackages.SelectedItems.Count == 0)
             {
-                try
+                MessageBox.Show("Please select a package from the list");
+            }
+            else
+            {
+                int selectedPkg = Convert.ToInt32(lstPackages.SelectedItems[0].Text);
+                string selectedPkgName = lstPackages.FocusedItem.SubItems[1].Text;
+
+                var confirmDelete = MessageBox.Show("Are you sure you want to delete " + selectedPkgName + "?", "Confirm?", MessageBoxButtons.YesNo);
+                if (confirmDelete == DialogResult.Yes)
                 {
-                    TravelPackageDB.DeletePackage(selectedPkg);
-                    MessageBox.Show("Package deleted successfully");
+                    try
+                    {
+                        TravelPackageDB.DeletePackage(selectedPkg);
+                        MessageBox.Show("Package deleted successfully");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Package could not be deleted, contact the administrator");
+                    }
+                    displayPackages();
                 }
-                catch
-                {
-                    MessageBox.Show("Package could not be deleted, contact the administrator");
-                }
-                displayPackages();
             }
         }
 
         private void btnEditPackage_Click(object sender, EventArgs e)
         {
-            EditPackage ppsForm = new EditPackage();
-            ppsForm.package = selectedPackage;
-            ppsForm.Show();
-            this.Hide();
-            ppsForm.FormClosing += PPS_FormClosing;
+            if (lstPackages.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a package from the list");
+            }
+            else
+            {
+                EditPackage ppsForm = new EditPackage();
+                ppsForm.package = selectedPackage;
+                ppsForm.Show();
+                this.Hide();
+                ppsForm.FormClosing += PPS_FormClosing;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -217,9 +232,83 @@ namespace TravelExperts
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgncCommish.Text = "";
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
         }
 
         private void lstPackages_Leave(object sender, EventArgs e)
+        {
+            //btnDelete.Enabled = false;
+            //btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgName_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgDesc_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgBasePrice_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgAgncCommish_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgName_Enter(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgDesc_Enter(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgBasePrice_Enter(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void txtPkgAgncCommish_Enter(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void dtpStartDate_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void dtpEndDate_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void dtpStartDate_Enter(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
+
+        private void dtpEndDate_Enter(object sender, EventArgs e)
         {
             btnDelete.Enabled = false;
             btnEditPackage.Enabled = false;
