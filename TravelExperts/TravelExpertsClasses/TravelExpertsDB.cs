@@ -11,7 +11,11 @@ namespace TravelExpertsClasses
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
+            //string for bd from web app
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\746162\Desktop\Online\Online\App_Data\TravelExperts.mdf;Integrated Security=True;";
+
+            //string for local source
+            //string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
             //string connectionString = @"Data Source=localhost;Initial Catalog=TravelExperts;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;

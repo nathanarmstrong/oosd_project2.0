@@ -56,40 +56,46 @@ namespace TravelExperts
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string newName = txtProdSup.Text;
-            bool valid = false;
-
             if (SelectedProductName != null)
             {
-                foreach (Product p in products)
+                if (Validator.IsProvided(txtProdSup, "A Product Name"))
                 {
-                    if(p.ProdName == newName)
+                    string newName = txtProdSup.Text;
+                    bool valid = false;
+
+                    foreach (Product p in products)
                     {
-                        MessageBox.Show("Product already exists, choose a unique product name");
-                        valid = false;
-                        break;
+                        if (p.ProdName == newName)
+                        {
+                            MessageBox.Show("Product already exists, choose a unique product name");
+                            valid = false;
+                            break;
+                        }
+                        else
+                        {
+                            valid = true;
+                        }
                     }
-                    else
+                    if (valid == true)
                     {
-                        valid = true;
-                    }
-                }
-                if (valid == true)
-                {
-                    try
-                    {
-                        ProductDB.UpdateProduct(SelectedProductName, newName);
-                        MessageBox.Show(SelectedProductName + " was updated to " + newName);
-                        this.Close();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Update was unsuccessful, try again");
+                        try
+                        {
+                            ProductDB.UpdateProduct(SelectedProductName, newName);
+                            MessageBox.Show(SelectedProductName + " was updated to " + newName);
+                            this.Close();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Update was unsuccessful, try again");
+                        }
                     }
                 }
             }
-            else
+            else if (Validator.IsProvided(txtProdSup, "A Supplier name"))
             {
+                string newName = txtProdSup.Text;
+                bool valid = false;
+
                 foreach (Supplier s in suppliers)
                 {
                     if (s.SupName == newName)

@@ -118,6 +118,9 @@ namespace TravelExperts
             displaySuppliers();
             listProducts();
             listSuppliers();
+
+            cbProducts.ContextMenu = new ContextMenu();
+            cbSuppliers.ContextMenu = new ContextMenu();
         }
         // link selected list box items
         private void btnLinkPS_Click(object sender, EventArgs e)
@@ -167,6 +170,10 @@ namespace TravelExperts
             listProducts();
             listSuppliers();
             this.Show();
+            btnDeleteSupplier.Enabled = false;
+            btnDeleteProduct.Enabled = false;
+            btnEditSupplier.Enabled = false;
+            btnEditProduct.Enabled = false;
         }
         // close this form
         //By Nathan Armstrong
@@ -258,8 +265,8 @@ namespace TravelExperts
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            cbProducts.Text = "";
             cbSuppliers.Text = "";
+            cbProducts.Text = "";
             btnLinkPS.Enabled = false;
         }
 
@@ -343,6 +350,36 @@ namespace TravelExperts
             epsForm.Show();
             this.Hide();
             epsForm.FormClosing += PPS_FormClosing;
+        }
+
+        private void cbProducts_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbSuppliers_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbProducts_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbSuppliers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

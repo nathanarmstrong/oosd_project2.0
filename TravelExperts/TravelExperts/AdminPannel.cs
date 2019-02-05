@@ -63,5 +63,14 @@ namespace TravelExperts
         {
             Application.Exit();
         }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            Packages_Products_Suppliers addProd = new Packages_Products_Suppliers();
+            addProd.Show();
+            this.Hide();
+            addProd.FormClosing += Supplies_Products_FormClosing;
+        }
+       
     }
 }

@@ -124,6 +124,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Suppliers_Products.resx">
       <DependentUpon>Suppliers_Products.cs</DependentUpon>
@@ -158,6 +159,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\architecture.jpg" />
+    <Content Include="Images\architectureCrop.jpg" />
+    <None Include="Resources\architecturesmall.jpg" />
+    <None Include="Resources\architectureCrop.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -208,5 +208,21 @@ namespace TravelExperts
             this.Hide();
             ppsForm.FormClosing += PPS_FormClosing;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtPkgName.Text = "";
+            dtpStartDate.Value = DateTime.Today;
+            dtpEndDate.Value = DateTime.Today.AddDays(1);
+            txtPkgDesc.Text = "";
+            txtPkgBasePrice.Text = "";
+            txtPkgAgncCommish.Text = "";
+        }
+
+        private void lstPackages_Leave(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            btnEditPackage.Enabled = false;
+        }
     }
 }

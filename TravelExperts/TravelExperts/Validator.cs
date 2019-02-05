@@ -65,7 +65,7 @@ namespace TravelExperts
             else if (num < 0)
             {
                 result = false;
-                MessageBox.Show(name + " has to be a non-negative currency value", "Data entry error");
+                MessageBox.Show(name + " has to be a non-negative currency", "Data entry error");
                 tb.SelectAll();
                 tb.Focus();
             }
