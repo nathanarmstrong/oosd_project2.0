@@ -40,6 +40,9 @@ namespace TravelExperts
             txtPkgAgncComm.Text = package.PkgAgencyCommission.ToString();
             dtpStartDate.Value = package.PkgStartDate;
             dtpEndDate.Value = package.PkgEndDate;
+
+            dtpStartDate.MinDate = package.PkgStartDate;
+            dtpEndDate.MinDate = dtpStartDate.Value.AddDays(1);
         }
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)

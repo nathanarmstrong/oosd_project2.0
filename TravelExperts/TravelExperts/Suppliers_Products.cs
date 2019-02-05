@@ -76,7 +76,7 @@ namespace TravelExperts
             // get input supplier.Text and append to list and then DB
             if (Validator.IsProvided(txtSuppliers, "Supplier Name"))
             {
-                string supplier = txtSuppliers.Text;
+                string supplier = txtSuppliers.Text.ToUpper();
                 bool valid = true;
                 foreach (Supplier createdSup in suppliers)
                 {

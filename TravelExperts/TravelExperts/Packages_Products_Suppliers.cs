@@ -78,7 +78,7 @@ namespace TravelExperts
             ProSups = ProductSuppliersDB.GetProductSuppliers();
             foreach(ProductSuppliers ProSup in ProSups)
             {
-                cbProSup.Items.Add(ProSup.ProdName + " " + ProSup.SupName);
+                cbProSup.Items.Add(ProSup.ProdName + " - " + ProSup.SupName);
             }
             // TODO: Get all packages from list and display in list box
         }
@@ -122,8 +122,8 @@ namespace TravelExperts
                         {
                             if (cProSup.ProductSupplierID == ProSup.ProductSupplierId)
                             {
-                                cbProSup.Items.Remove(ProSup.ProdName + " " + ProSup.SupName);
-                                CorProSups.Add(ProSup.ProdName + " " + ProSup.SupName);
+                                cbProSup.Items.Remove(ProSup.ProdName + " - " + ProSup.SupName);
+                                CorProSups.Add(ProSup.ProdName + " - " + ProSup.SupName);
                             }  
                         }
                     }
@@ -143,7 +143,7 @@ namespace TravelExperts
             List<PackageProductSupplier> corispondingPackage = new List<PackageProductSupplier>();
             foreach (ProductSuppliers ProSup in ProSups)
             {
-                string ProSupString = ProSup.ProdName + " " + ProSup.SupName;
+                string ProSupString = ProSup.ProdName + " - " + ProSup.SupName;
                 if (select == ProSupString)
                 {
                     selectedProSup = ProSup.ProductSupplierId;

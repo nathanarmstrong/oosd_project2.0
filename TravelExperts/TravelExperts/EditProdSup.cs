@@ -60,7 +60,7 @@ namespace TravelExperts
             {
                 if (Validator.IsProvided(txtProdSup, "A Product Name"))
                 {
-                    string newName = txtProdSup.Text;
+                    string newName = txtProdSup.Text.ToUpper();
                     bool valid = false;
 
                     foreach (Product p in products)
