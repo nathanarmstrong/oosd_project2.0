@@ -8,21 +8,6 @@ namespace TravelExpertsClasses
 {
     /* 
         Author: James Sharpe
-
-        Current version - 1.0
-            version:
-                 v1.0 - Januray 6, 2018
-                 v1.1 - January 8, 2018
-                 
-                 v1.0 - Created Travel Package class and FileIO for future testing
-                 v1.1 - Debugged Visual Studio bug causing compiling error.  No change to code :0
-                 
-      
-      
-      
-      
-      
-        
     */
 
     // Travel Packages Class
@@ -79,7 +64,7 @@ namespace TravelExpertsClasses
             set { pkgAgencyCommission = value; }
         }
 
-        // constructors
+        // constructors, depricated
         //public TravelPackage (decimal ID, string name, string start, string end, string desc, decimal price, decimal commish)
         //{
         //    PkgID = ID;
@@ -94,14 +79,14 @@ namespace TravelExpertsClasses
         // Methods
 
         //write to file string method
-        public string ToFileString()
-        {
-            return pkgName.ToString() + "," +
-                pkgStartDate.ToString() + "," +
-                pkgEndDate.ToString() + "," +
-                pkgDesc.ToString() + "," +
-                pkgBasePrice.ToString() + "," +
-                pkgAgencyCommission.ToString();
-        }
+        //public string ToFileString()
+        //{
+        //    return pkgName.ToString() + "," +
+        //        pkgStartDate.ToString() + "," +
+        //        pkgEndDate.ToString() + "," +
+        //        pkgDesc.ToString() + "," +
+        //        pkgBasePrice.ToString() + "," +
+        //        pkgAgencyCommission.ToString();
+        //}
     }
 }

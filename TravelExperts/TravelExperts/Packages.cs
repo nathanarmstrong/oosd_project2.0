@@ -16,18 +16,20 @@ namespace TravelExperts
      * Date: January 2019
      * Creators: Nathan Armstrong, Abel Rojas Bueno, James Sharpe, Manish Sudani
      * Basic layout: Nathan Armstrong
-     * 
+     * Loading packages from the database and validation: James Sharpe
+     * Connecting Packages to edit and delete, fixes and bugs: Nathan Armstrong and James Sharpe
      */
     public partial class Packages : Form
     {
-        List<TravelPackage> packages;
-        private TravelPackage selectedPackage;
+        List<TravelPackage> packages; // list of packages
+        private TravelPackage selectedPackage; // selected package for edit/delete
 
         public Packages()
         {
             InitializeComponent();
         }
 
+        // validate text boxes and put fields into an object to be added into database
         private void btnAddPackage_Click(object sender, EventArgs e)
         {
             if (Validator.IsProvided(txtPkgName, "Package Name") &&
@@ -103,18 +105,21 @@ namespace TravelExperts
                 i++;
             }
         }
+
         // Close Application
         // By Nathan Armstrong
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
         //close this form
         //By Nathan Armstrong
         private void btnBackPage_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         // Open new Packages_Products_Suppliers form and hide this one
         // By Nathan Armstrong
         private void btnLinkProSup_Click(object sender, EventArgs e)
@@ -124,6 +129,7 @@ namespace TravelExperts
             this.Hide();
             ppsForm.FormClosing += PPS_FormClosing;
         }
+
         // on Packages_Products_Suppliers closing re show this form it is is hidden
         // By Nathan Armstrong
         private void PPS_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,6 +139,7 @@ namespace TravelExperts
             btnDelete.Enabled = false;
             btnEditPackage.Enabled = false;
         }
+
         // When form loads get all data from DB and display it
         private void Packages_Load(object sender, EventArgs e)
         {
@@ -141,16 +148,13 @@ namespace TravelExperts
             dtpEndDate.MinDate = dtpStartDate.Value.AddDays(1);
         }
 
+        // set the mindate for the date time picker
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
             dtpEndDate.MinDate = dtpStartDate.Value.AddDays(1);
         }
 
-        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // load selected package items from list table into object to pass into delete or 
         private void lstPackages_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEditPackage.Enabled = true;
@@ -165,6 +169,7 @@ namespace TravelExperts
             selectedPackage.PkgAgencyCommission = Convert.ToDecimal(lstPackages.FocusedItem.SubItems[6].Text.Substring(1));
         }
 
+        // regex for base price, legacy not used
         private void txtPkgBasePrice_TextChanged(object sender, EventArgs e)
         {
             string previousInput = "";
@@ -180,6 +185,7 @@ namespace TravelExperts
             }
         }
 
+        // confirm deleteion and call delete package function, inserting in the selected package
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (lstPackages.SelectedItems.Count == 0)
@@ -208,6 +214,7 @@ namespace TravelExperts
             }
         }
 
+        // calls the edit package form and puts in the selected package into an object into that form 
         private void btnEditPackage_Click(object sender, EventArgs e)
         {
             if (lstPackages.SelectedItems.Count == 0)
@@ -224,6 +231,7 @@ namespace TravelExperts
             }
         }
 
+        // clears the fields on click
         private void button1_Click(object sender, EventArgs e)
         {
             txtPkgName.Text = "";
@@ -236,11 +244,7 @@ namespace TravelExperts
             btnEditPackage.Enabled = false;
         }
 
-        private void lstPackages_Leave(object sender, EventArgs e)
-        {
-            //btnDelete.Enabled = false;
-            //btnEditPackage.Enabled = false;
-        }
+    // all the following functions give leave and and enter events to disable 
 
         private void txtPkgName_Leave(object sender, EventArgs e)
         {

@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Abel Rojas Bueno
+    */ 
+
     public class Product
     {
         public Product() { }

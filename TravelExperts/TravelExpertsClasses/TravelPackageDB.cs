@@ -7,8 +7,13 @@ using System.Data.SqlClient;
 
 namespace TravelExpertsClasses
 {
+    /* 
+        Author: James Sharpe
+    */
+
     public static class TravelPackageDB
     {
+        // get package from db
         public static List<TravelPackage> GetTavelPackage()
         {
             List<TravelPackage> packages = new List<TravelPackage>(); // empty list of Packages
@@ -44,6 +49,8 @@ namespace TravelExpertsClasses
             }
             return packages;
         }
+
+        //add new package to db
         public static void AddPackage(TravelPackage tp)
         {
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
@@ -71,6 +78,7 @@ namespace TravelExpertsClasses
             }
         }
 
+        // delete package from the db
         public static void DeletePackage(int tp)
         {
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
@@ -93,6 +101,7 @@ namespace TravelExpertsClasses
             }
         }
 
+        // update package from the db
         public static bool UpdatePackage(TravelPackage oldPkg, TravelPackage newPkg)
         {
             bool success = false;

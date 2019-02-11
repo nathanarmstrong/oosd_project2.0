@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Manish Sudani
+     */
+
     //public class supplier
     public class Supplier
 
@@ -15,16 +20,7 @@ namespace TravelExpertsClasses
 
         public string SupName{ get; set; }
 
-        // constructors
-
-        //public string SupplierInfo
-        //{
-        //    get
-        //    {
-        //        // returns "Supplier Id - SupplierName"
-        //        return $"{ SupplierId } - { SupName }";
-        //    }
-        //}
+       
     }
 }
 

@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Nathan Armstrong
+     */
     public class ProductSuppliersDB
     {
+        // get prodsupp from db
         public static List<ProductSuppliers> GetProductSuppliers()
         {
             List<ProductSuppliers> ProSups = new List<ProductSuppliers>();
@@ -47,6 +52,8 @@ namespace TravelExpertsClasses
             }
             return ProSups;
         }
+
+        // link prodsupp from db
         public static bool LinkProductSuppliers(int SupID, int ProdID)
         {
             bool results = false;
@@ -71,6 +78,8 @@ namespace TravelExpertsClasses
             }
             return results;
         }
+
+        // list of suppliers
         public static List<ProductSuppliers> GetProducts(int SupID)
         {
             List<ProductSuppliers> ProSups = new List<ProductSuppliers>();
@@ -78,6 +87,7 @@ namespace TravelExpertsClasses
             return ProSups;
         }
 
+        // list products
         public static List<ProductSuppliers> GetSuppliers(int ProdID)
         {
             List<ProductSuppliers> ProSups = new List<ProductSuppliers>();
@@ -85,6 +95,7 @@ namespace TravelExpertsClasses
             return ProSups;
         }
 
+        // get all supp and prods from IDs
         public static List<ProductSuppliers> GetInfo(int ID, string type)
         {
             List<ProductSuppliers> list = new List<ProductSuppliers>();

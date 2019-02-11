@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsClasses;
 
@@ -15,15 +9,17 @@ namespace TravelExperts
      * Date: January 2019
      * Creators: Nathan Armstrong, Abel Rojas Bueno, James Sharpe, Manish Sudani
      * Basic layout: Nathan Armstrong
-     * 
+     * Combine products and suppliers for insertion into DB: Nathan Armstrong
+     * Load lists and suppress combo box editing: Nathan Armstrong and James Sharpe
      */
     public partial class Packages_Products_Suppliers : Form
     {
 
-        List<TravelPackage> packages = new List<TravelPackage>();
-        List<ProductSuppliers> ProSups = new List<ProductSuppliers>();
-        List<string> CorProSups = new List<string>();
+        List<TravelPackage> packages = new List<TravelPackage>(); // list of products
+        List<ProductSuppliers> ProSups = new List<ProductSuppliers>(); // list of suppliers
+        List<string> CorProSups = new List<string>(); // list of correspondin product to a suppluier
 
+        // initilize to get id of prod or supp 
         int selectedProSup = 0;
         int selectedPackage = 0;
         
@@ -31,6 +27,7 @@ namespace TravelExperts
         {
             InitializeComponent();
         }
+
         // Link the selected items from the list box and append to DB
         private void btnLink_Click(object sender, EventArgs e)
         {
@@ -80,8 +77,9 @@ namespace TravelExperts
             {
                 cbProSup.Items.Add(ProSup.ProdName + " - " + ProSup.SupName);
             }
-            // TODO: Get all packages from list and display in list box
         }
+
+        // dsplay products for corresponding packages in list view
         private void displayProSup()
         {
             lsbPackageProducts.Items.Clear();
@@ -104,6 +102,7 @@ namespace TravelExperts
             this.Close();
         }
 
+        // load selected package, display surrent packages and populate supplier/products list with itmes not in package
         private void cbPackage_SelectedIndexChanged(object sender, EventArgs e)
         {
             listProSup();
@@ -136,6 +135,7 @@ namespace TravelExperts
             }
         }
 
+        // load packages to add selected supplier/products into db
         private void cbProSup_SelectedIndexChanged(object sender, EventArgs e)
         {
             listPackages();
@@ -166,6 +166,7 @@ namespace TravelExperts
             }
         }
 
+        // clear fields
         private void btnClear_Click(object sender, EventArgs e)
         {
             cbPackage.Text = "";
@@ -174,6 +175,7 @@ namespace TravelExperts
             btnLink.Enabled = false;
         }
 
+        // suppress key strokes and contexual menu from combo boxes
         private void cbProSup_KeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = true;

@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Nathan Armstrong and James Sharpe
+     * Co-author: Manish Sudani
+     */
     public static class SupplierDB
     {
         public static List<Supplier> GetSuppliers()

@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Abel Rojas Bueno
+     * Co-Author: Nathan Armstrong and James Sharpe
+     */
     public static class ProductDB
     {
+        // get products from db
         public static List<Product> GetProducts()
         {
             List<Product> products = new List<Product>();
@@ -41,6 +47,8 @@ namespace TravelExpertsClasses
             }
             return products;
         }
+
+        // add product to db
         public static int AddProduct(Product product)
         {
             SqlConnection con = TravelExpertsDB.GetConnection();
@@ -67,6 +75,8 @@ namespace TravelExpertsClasses
                 con.Close();
             }
         }
+
+        // delete product from db
         public static void DeleteProduct(string product)
         {
             SqlConnection dbConnect = TravelExpertsDB.GetConnection();
@@ -89,6 +99,7 @@ namespace TravelExpertsClasses
             }
         }
 
+        // update product to db
         public static bool UpdateProduct(string oldProd, string newProd)
         {
             bool success = false;
