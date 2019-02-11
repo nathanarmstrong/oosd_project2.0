@@ -7,6 +7,12 @@ using System.Windows.Forms;
 
 namespace TravelExperts
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Creators: Nathan Armstrong, Abel Rojas Bueno, James Sharpe, Manish Sudani
+     * Validation specific for the validation types of the project: James Sharpe
+     */
+
     public static class Validator
     {
         public static bool IsProvided(TextBox tb, string name)

@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Nathan Armstrong
+     */
+
     public class ProductSuppliers
     {
         public int ProductSupplierId { get; set; }

@@ -11,28 +11,38 @@ using TravelExpertsClasses;
 
 namespace TravelExperts
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Creators: Nathan Armstrong, Abel Rojas Bueno, James Sharpe, Manish Sudani
+     * Design, validation: James Sharpe
+     * Loading product or supplier and using insert fucntion to insert, fixes and bugs: Nathan Armstrong and James Sharpe 
+     */
+
     public partial class EditProdSup : Form
     {
-        public string SelectedProductName = null;
-        public string SelectedSupplierName = null;
-        List<Product> products = new List<Product>();
-        List<Supplier> suppliers = new List<Supplier>();
+        public string SelectedProductName = null; // set prod to null
+        public string SelectedSupplierName = null; // set supp to null
+        List<Product> products = new List<Product>(); // list of products
+        List<Supplier> suppliers = new List<Supplier>(); // list of supplies
 
         public EditProdSup()
         {
             InitializeComponent();
         }
 
+        // back to previous form
         private void btnBackPage_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // exit app
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // on load check if supplier or product is being edited and display respective messages
         private void EditProdSup_Load(object sender, EventArgs e)
         {
             products = ProductDB.GetProducts();
@@ -54,13 +64,14 @@ namespace TravelExperts
             }
         }
 
+        // call the proper function for insertion of the the supplier of the product and put to upper for the suppliers
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (SelectedProductName != null)
             {
                 if (Validator.IsProvided(txtProdSup, "A Product Name"))
                 {
-                    string newName = txtProdSup.Text.ToUpper();
+                    string newName = txtProdSup.Text;
                     bool valid = false;
 
                     foreach (Product p in products)
@@ -93,7 +104,7 @@ namespace TravelExperts
             }
             else if (Validator.IsProvided(txtProdSup, "A Supplier name"))
             {
-                string newName = txtProdSup.Text;
+                string newName = txtProdSup.Text.ToUpper();
                 bool valid = false;
 
                 foreach (Supplier s in suppliers)

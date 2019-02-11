@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsClasses;
 
@@ -15,8 +8,9 @@ namespace TravelExperts
     /* Project 2 Group 1 
      * Date: January 2019
      * Creators: Nathan Armstrong, Abel Rojas Bueno, James Sharpe, Manish Sudani
-     * Basic layout: Nathan Armstrong
-     * 
+     * Basic layout, display list boxes and combo boxes and linking prods/supps: Nathan Armstrong
+     * Add/edit/delete buttons and functions for prod and supps: James Sharpe
+     * bugs and fixes: Nathan Armstrong and James Sharpe
      */
 
     public partial class Suppliers_Products : Form
@@ -100,6 +94,8 @@ namespace TravelExperts
                 }
             }
         }
+
+        // display lsit box of supplies
         private void displaySuppliers()
         {
             suppliers = SupplierDB.GetSuppliers();
@@ -125,7 +121,6 @@ namespace TravelExperts
         // link selected list box items
         private void btnLinkPS_Click(object sender, EventArgs e)
         {
-            // TODO: get selected items from both list box's and link them to the Products_suppliers Table in the DB
             int supID = -1;
             int proID = -1;
             foreach (Product pro in products)
@@ -161,6 +156,7 @@ namespace TravelExperts
             this.Hide();
             ppsForm.FormClosing += PPS_FormClosing;
         }
+
         // on Packages_Products_Suppliers closing re show this form it is is hidden
         //By Nathan Armstrong
         private void PPS_FormClosing(object sender, FormClosingEventArgs e)
@@ -175,12 +171,14 @@ namespace TravelExperts
             btnEditSupplier.Enabled = false;
             btnEditProduct.Enabled = false;
         }
+
         // close this form
         //By Nathan Armstrong
         private void btnBackPage_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
          // Close the application
          //By Nathan Armstrong
         private void btnExit_Click(object sender, EventArgs e)
@@ -209,6 +207,7 @@ namespace TravelExperts
                 cbProducts.Items.Add(product.ProdName);
             }
         }
+
         // selected value change in the products combo box
         //By:Nathan Armstrong
         private void cbProducts_SelectedIndexChanged(object sender, EventArgs e)
@@ -263,6 +262,7 @@ namespace TravelExperts
             }
         }
 
+        // clear fields
         private void btnClear_Click(object sender, EventArgs e)
         {
             cbSuppliers.Text = "";
@@ -270,6 +270,7 @@ namespace TravelExperts
             btnLinkPS.Enabled = false;
         }
 
+        // call delete function for the product selected and set a confirmation box.
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         { 
             string selectedProduct = lbProducts.SelectedItem.ToString();
@@ -296,6 +297,7 @@ namespace TravelExperts
             }
         }
 
+        // call delete function for the supplier selected and set a confirmation box.
         private void btnDeleteSupplier_Click(object sender, EventArgs e)
         {
             string selectedSupplier = lbSuppliers.SelectedItem.ToString();
@@ -322,18 +324,21 @@ namespace TravelExperts
             }
         }
 
+        //  disable delete buttons
         private void lbProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnDeleteProduct.Enabled = true;
             btnEditProduct.Enabled = true;
         }
 
+        //  disable delete buttons
         private void lbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnDeleteSupplier.Enabled = true;
             btnEditSupplier.Enabled = true;
         }
 
+        // set selected item to pass into the edit form
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
             EditProdSup epsForm = new EditProdSup();
@@ -343,6 +348,7 @@ namespace TravelExperts
             epsForm.FormClosing += PPS_FormClosing;
         }
 
+        // set selected item to pass into the edit form
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             EditProdSup epsForm = new EditProdSup();
@@ -352,6 +358,7 @@ namespace TravelExperts
             epsForm.FormClosing += PPS_FormClosing;
         }
 
+        // for the remaining fucntions: disable/surpress keystrokes and mouse context menus on list boxes
         private void cbProducts_KeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = true;

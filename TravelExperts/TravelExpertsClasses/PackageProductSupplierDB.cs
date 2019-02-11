@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsClasses
 {
+    /* Project 2 Group 1 
+     * Date: January 2019
+     * Author: Nathan Armstrong
+     */
+
     public class PackageProductSupplierDB
     {
+        // get prod/supp and package from db
         public static List<PackageProductSupplier> GetPackage(int ID)
         {
             List<PackageProductSupplier> list = new List<PackageProductSupplier>();
@@ -42,6 +48,8 @@ namespace TravelExpertsClasses
             }
             return list;
         }
+
+        // get prod/supp from packageID from db
         public static List<PackageProductSupplier> GetProSup(int ID)
         {
             List<PackageProductSupplier> list = new List<PackageProductSupplier>();
@@ -75,6 +83,8 @@ namespace TravelExpertsClasses
             }
             return list;
         }
+
+        // get package based on prod/supp from db
         public static bool LinkPackageProductSuppliers(int ProSupID, int PackageID)
         {
             bool results = false;

@@ -92,7 +92,6 @@
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(87, 20);
             this.dtpEndDate.TabIndex = 9;
-            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             this.dtpEndDate.Enter += new System.EventHandler(this.dtpEndDate_Enter);
             this.dtpEndDate.Leave += new System.EventHandler(this.dtpEndDate_Leave);
             // 
@@ -195,7 +194,6 @@
             this.lstPackages.UseCompatibleStateImageBehavior = false;
             this.lstPackages.View = System.Windows.Forms.View.Details;
             this.lstPackages.SelectedIndexChanged += new System.EventHandler(this.lstPackages_SelectedIndexChanged);
-            this.lstPackages.Leave += new System.EventHandler(this.lstPackages_Leave);
             // 
             // colPkgID
             // 
